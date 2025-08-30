@@ -1,0 +1,260 @@
+# Enhanced APM and Monitoring Configuration
+# Framework v12.3.0 compliant
+
+# Sentry Error Tracking Configuration
+sentry:
+  dsn: <%= ENV['SENTRY_DSN'] %>
+  environment: <%= Rails.env %>
+  
+  # Performance monitoring
+  traces_sample_rate: <%= ENV.fetch('SENTRY_TRACES_SAMPLE_RATE', '0.1').to_f %>
+  profiles_sample_rate: <%= ENV.fetch('SENTRY_PROFILES_SAMPLE_RATE', '0.1').to_f %>
+  
+  # Security: Filter sensitive data
+  before_send:
+    - filter_passwords
+    - filter_credit_cards
+    - filter_api_keys
+  
+  # Performance: Tag important metrics
+  tags:
+    tenant: <%= ActsAsTenant.current_tenant&.subdomain %>
+    server: <%= ENV['HOSTNAME'] %>
+    version: <%= Rails.application.version %>
+
+# Application Performance Monitoring
+apm:
+  # Database query monitoring
+  database:
+    slow_query_threshold: 1000ms  # Log queries slower than 1s
+    enable_query_cache: true
+    log_n_plus_one: true
+  
+  # HTTP request monitoring
+  http:
+    request_timeout: 30s
+    slow_request_threshold: 2000ms
+    enable_request_tracing: true
+  
+  # Memory monitoring
+  memory:
+    alert_threshold: 500MB
+    gc_monitoring: true
+    object_allocation_tracking: true
+  
+  # Custom metrics
+  custom_metrics:
+    - user_registrations_per_hour
+    - listing_creation_rate
+    - search_query_performance
+    - map_interaction_tracking
+
+# Health Check Configuration
+health_checks:
+  endpoints:
+    - path: "/health"
+      checks:
+        - database_connection
+        - redis_connection
+        - disk_space
+        - memory_usage
+    
+    - path: "/health/detailed" 
+      checks:
+        - database_migration_status
+        - background_job_queue_size
+        - cache_hit_ratio
+        - external_service_status
+  
+  thresholds:
+    response_time: 5000ms
+    memory_usage: 80%
+    disk_space: 90%
+    queue_size: 1000
+
+# Log Aggregation
+logging:
+  level: <%= Rails.env.production? ? 'info' : 'debug' %>
+  format: json
+  
+  # Security: Structured logging with sensitive data filtering
+  filters:
+    - password
+    - token
+    - api_key
+    - credit_card
+    - ssn
+  
+  # Performance: Log sampling for high-volume events
+  sampling:
+    search_queries: 0.1  # Sample 10% of search queries
+    map_interactions: 0.05  # Sample 5% of map interactions
+    page_views: 0.01  # Sample 1% of page views
+  
+  # External log aggregation
+  external:
+    enabled: <%= ENV['LOG_AGGREGATION_ENABLED'] == 'true' %>
+    endpoint: <%= ENV['LOG_AGGREGATION_ENDPOINT'] %>
+    api_key: <%= ENV['LOG_AGGREGATION_API_KEY'] %>
+
+# Real-time Alerting
+alerts:
+  # Error rate alerts
+  error_rate:
+    threshold: 5%  # Alert if error rate exceeds 5%
+    window: 5m     # Over 5-minute window
+    channels:
+      - slack
+      - email
+  
+  # Performance alerts
+  response_time:
+    threshold: 3000ms
+    percentile: 95
+    window: 10m
+    channels:
+      - slack
+  
+  # Infrastructure alerts
+  infrastructure:
+    cpu_usage: 80%
+    memory_usage: 85%
+    disk_usage: 90%
+    channels:
+      - email
+      - pagerduty
+  
+  # Security alerts
+  security:
+    failed_login_attempts: 10  # per minute
+    suspicious_ip_activity: true
+    potential_ddos: true
+    channels:
+      - security_team
+      - slack
+
+# Performance Metrics Collection
+metrics:
+  # Application metrics
+  application:
+    - request_duration
+    - request_count
+    - error_count
+    - user_active_sessions
+    - database_query_count
+    - cache_hit_miss_ratio
+  
+  # Business metrics
+  business:
+    - user_registrations
+    - listing_creations
+    - search_queries
+    - map_interactions
+    - tenant_activity
+  
+  # Infrastructure metrics
+  infrastructure:
+    - cpu_usage
+    - memory_usage
+    - disk_io
+    - network_io
+    - load_average
+  
+  # Custom dashboards
+  dashboards:
+    - name: "Application Overview"
+      metrics:
+        - request_duration
+        - error_rate
+        - active_users
+        - tenant_distribution
+    
+    - name: "Performance Deep Dive"
+      metrics:
+        - database_performance
+        - cache_performance
+        - background_job_performance
+        - external_api_performance
+    
+    - name: "Business Insights"
+      metrics:
+        - user_growth
+        - listing_trends
+        - geographical_distribution
+        - feature_usage
+
+# Security Monitoring
+security_monitoring:
+  # Intrusion detection
+  intrusion_detection:
+    enabled: true
+    failed_login_threshold: 5
+    suspicious_user_agent_patterns:
+      - bot
+      - scanner
+      - crawler
+    
+  # Rate limiting monitoring
+  rate_limiting:
+    track_violations: true
+    alert_on_repeated_violations: true
+    threshold: 10  # violations per hour
+  
+  # Content security monitoring
+  content_security:
+    xss_detection: true
+    sql_injection_detection: true
+    file_upload_monitoring: true
+  
+  # API security monitoring
+  api_security:
+    authentication_failures: true
+    authorization_violations: true
+    unusual_api_usage_patterns: true
+
+# Backup Monitoring
+backup_monitoring:
+  # Database backup verification
+  database_backups:
+    check_frequency: daily
+    retention_verification: true
+    integrity_checks: true
+    alert_on_failure: true
+  
+  # File system backup verification
+  filesystem_backups:
+    check_frequency: daily
+    size_trend_monitoring: true
+    alert_on_significant_changes: true
+  
+  # Cloud backup verification
+  cloud_backups:
+    verify_uploads: true
+    check_accessibility: true
+    monitor_costs: true
+
+# Notification Channels
+notification_channels:
+  slack:
+    webhook_url: <%= ENV['SLACK_WEBHOOK_URL'] %>
+    channel: "#alerts"
+    username: "MonitoringBot"
+  
+  email:
+    smtp_server: <%= ENV['SMTP_SERVER'] %>
+    recipients:
+      - ops@example.com
+      - dev@example.com
+  
+  pagerduty:
+    integration_key: <%= ENV['PAGERDUTY_INTEGRATION_KEY'] %>
+    severity_mapping:
+      critical: "critical"
+      high: "error"
+      medium: "warning"
+      low: "info"
+  
+  security_team:
+    endpoint: <%= ENV['SECURITY_WEBHOOK_URL'] %>
+    encryption: true
+    priority_escalation: true
