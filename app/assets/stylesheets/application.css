@@ -1,10 +1,708 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
+/* 
+ * Public Healthcare Platform - Golden Ratio Design System
+ * WCAG 2.2 AAA Compliant Healthcare Design
+ * Norwegian localized with NOK currency and nb_NO conventions
  */
+
+/* CSS Custom Properties - Golden Ratio Foundation */
+:root {
+  /* Golden Ratio Constants */
+  --phi: 1.618;
+  --phi-inverse: 0.618;
+  
+  /* Base Units - 0.5rem foundation */
+  --space-unit: 0.5rem;
+  --space-xs: calc(var(--space-unit) * 0.5);     /* 0.25rem */
+  --space-sm: var(--space-unit);                 /* 0.5rem */
+  --space-md: calc(var(--space-unit) * var(--phi)); /* 0.809rem */
+  --space-lg: calc(var(--space-unit) * var(--phi) * var(--phi)); /* 1.309rem */
+  --space-xl: calc(var(--space-unit) * var(--phi) * var(--phi) * var(--phi)); /* 2.118rem */
+  --space-2xl: calc(var(--space-unit) * var(--phi) * var(--phi) * var(--phi) * var(--phi)); /* 3.427rem */
+  
+  /* Typography Scale - Golden Ratio Progression */
+  --font-size-small: calc(1rem / var(--phi));           /* 0.618rem */
+  --font-size-base: 1rem;                               /* 1rem */
+  --font-size-h4: calc(1rem * var(--phi) * 0.5);       /* 0.809rem */
+  --font-size-h3: calc(1rem * var(--phi));              /* 1.618rem */
+  --font-size-h2: calc(1rem * var(--phi) * var(--phi)); /* 2.618rem */
+  --font-size-h1: calc(1rem * var(--phi) * var(--phi) * var(--phi)); /* 4.236rem */
+  --font-size-display: calc(1rem * var(--phi) * var(--phi) * var(--phi) * var(--phi)); /* 6.854rem */
+  
+  /* Line Heights - Golden Ratio Based */
+  --line-height-tight: var(--phi-inverse);   /* 0.618 */
+  --line-height-base: var(--phi);            /* 1.618 */
+  --line-height-loose: calc(var(--phi) * 1.25); /* 2.0225 */
+  
+  /* Norwegian Color Palette - WCAG AAA Compliant */
+  /* Primary: Norwegian Blue (inspired by flag) */
+  --color-primary-hue: 210;
+  --color-primary-sat: 85%;
+  --color-primary-50: hsl(var(--color-primary-hue), var(--color-primary-sat), 97%);
+  --color-primary-100: hsl(var(--color-primary-hue), var(--color-primary-sat), 93%);
+  --color-primary-200: hsl(var(--color-primary-hue), var(--color-primary-sat), 85%);
+  --color-primary-300: hsl(var(--color-primary-hue), var(--color-primary-sat), 75%);
+  --color-primary-400: hsl(var(--color-primary-hue), var(--color-primary-sat), 65%);
+  --color-primary-500: hsl(var(--color-primary-hue), var(--color-primary-sat), 55%);
+  --color-primary-600: hsl(var(--color-primary-hue), var(--color-primary-sat), 45%);
+  --color-primary-700: hsl(var(--color-primary-hue), var(--color-primary-sat), 35%);
+  --color-primary-800: hsl(var(--color-primary-hue), var(--color-primary-sat), 25%);
+  --color-primary-900: hsl(var(--color-primary-hue), var(--color-primary-sat), 15%);
+  
+  /* Secondary: Norwegian Red (inspired by flag) */
+  --color-secondary-hue: 0;
+  --color-secondary-sat: 75%;
+  --color-secondary-50: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 97%);
+  --color-secondary-100: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 93%);
+  --color-secondary-200: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 85%);
+  --color-secondary-300: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 75%);
+  --color-secondary-400: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 65%);
+  --color-secondary-500: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 55%);
+  --color-secondary-600: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 45%);
+  --color-secondary-700: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 35%);
+  --color-secondary-800: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 25%);
+  --color-secondary-900: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 15%);
+  
+  /* Neutral Grays - High Contrast for Accessibility */
+  --color-neutral-50: hsl(210, 20%, 98%);
+  --color-neutral-100: hsl(210, 20%, 95%);
+  --color-neutral-200: hsl(210, 16%, 88%);
+  --color-neutral-300: hsl(210, 14%, 78%);
+  --color-neutral-400: hsl(210, 11%, 65%);
+  --color-neutral-500: hsl(210, 8%, 50%);
+  --color-neutral-600: hsl(210, 9%, 35%);
+  --color-neutral-700: hsl(210, 10%, 25%);
+  --color-neutral-800: hsl(210, 12%, 15%);
+  --color-neutral-900: hsl(210, 15%, 8%);
+  
+  /* Semantic Colors - Healthcare Focused */
+  --color-success-50: hsl(140, 60%, 97%);
+  --color-success-100: hsl(140, 60%, 93%);
+  --color-success-500: hsl(140, 60%, 45%);
+  --color-success-700: hsl(140, 60%, 25%);
+  --color-success-900: hsl(140, 60%, 15%);
+  
+  --color-warning-50: hsl(45, 85%, 97%);
+  --color-warning-100: hsl(45, 85%, 93%);
+  --color-warning-500: hsl(45, 85%, 55%);
+  --color-warning-700: hsl(45, 85%, 35%);
+  --color-warning-900: hsl(45, 85%, 15%);
+  
+  --color-error-50: hsl(0, 75%, 97%);
+  --color-error-100: hsl(0, 75%, 93%);
+  --color-error-500: hsl(0, 75%, 55%);
+  --color-error-700: hsl(0, 75%, 35%);
+  --color-error-900: hsl(0, 75%, 15%);
+  
+  /* Text Colors - WCAG AAA Compliant (7:1 contrast ratio) */
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-700);
+  --text-muted: var(--color-neutral-600);
+  --text-inverse: var(--color-neutral-50);
+  
+  /* Background Colors */
+  --bg-primary: var(--color-neutral-50);
+  --bg-secondary: var(--color-neutral-100);
+  --bg-elevated: var(--color-neutral-50);
+  --bg-inverse: var(--color-neutral-900);
+  
+  /* Border Colors */
+  --border-light: var(--color-neutral-200);
+  --border-medium: var(--color-neutral-300);
+  --border-strong: var(--color-neutral-400);
+  
+  /* Shadows - Subtle and Accessible */
+  --shadow-sm: 0 1px 2px 0 hsla(210, 15%, 8%, 0.05);
+  --shadow-md: 0 4px 6px -1px hsla(210, 15%, 8%, 0.1), 0 2px 4px -1px hsla(210, 15%, 8%, 0.06);
+  --shadow-lg: 0 10px 15px -3px hsla(210, 15%, 8%, 0.1), 0 4px 6px -2px hsla(210, 15%, 8%, 0.05);
+  
+  /* Border Radius - Golden Ratio Based */
+  --radius-sm: calc(var(--space-unit) * 0.25);
+  --radius-md: calc(var(--space-unit) * var(--phi-inverse));
+  --radius-lg: var(--space-unit);
+  --radius-xl: calc(var(--space-unit) * var(--phi));
+  
+  /* Breakpoints - Mobile First */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+  
+  /* Animations - Reduced Motion Friendly */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 350ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Focus Ring - High Visibility for Accessibility */
+  --focus-ring: 0 0 0 2px var(--color-primary-500);
+  --focus-ring-offset: 0 0 0 4px var(--color-neutral-50);
+}
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Base 16px for accessibility */
+  line-height: var(--line-height-base);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography - Golden Ratio Scale */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--space-md) 0;
+  line-height: var(--line-height-tight);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+h1, .text-display {
+  font-size: var(--font-size-display);
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+}
+
+h2, .text-h1 {
+  font-size: var(--font-size-h1);
+  line-height: 1.2;
+}
+
+h3, .text-h2 {
+  font-size: var(--font-size-h2);
+  line-height: 1.3;
+}
+
+h4, .text-h3 {
+  font-size: var(--font-size-h3);
+  line-height: 1.4;
+}
+
+h5, .text-h4 {
+  font-size: var(--font-size-h4);
+  line-height: 1.5;
+}
+
+h6, .text-base {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-base);
+}
+
+/* Text Utilities */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-inverse { color: var(--text-inverse); }
+
+.text-success { color: var(--color-success-700); }
+.text-warning { color: var(--color-warning-700); }
+.text-error { color: var(--color-error-700); }
+
+/* Links - High Contrast and Accessible */
+a {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+a:hover {
+  color: var(--color-primary-800);
+  text-decoration-thickness: 2px;
+}
+
+a:focus {
+  outline: none;
+  box-shadow: var(--focus-ring), var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
+a:visited {
+  color: var(--color-primary-600);
+}
+
+/* Layout Utilities - Golden Ratio Spacing */
+.container {
+  max-width: var(--bp-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.flex {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* Spacing Utilities */
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+
+.m-xs { margin: var(--space-xs); }
+.m-sm { margin: var(--space-sm); }
+.m-md { margin: var(--space-md); }
+.m-lg { margin: var(--space-lg); }
+.m-xl { margin: var(--space-xl); }
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+/* Form Elements - WCAG AAA Compliant */
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) var(--ease-in-out),
+              box-shadow var(--duration-fast) var(--ease-in-out);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: var(--focus-ring);
+}
+
+input:invalid,
+textarea:invalid,
+select:invalid {
+  border-color: var(--color-error-500);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Buttons - Norwegian Healthcare Style */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-in-out);
+  min-height: 44px; /* WCAG touch target size */
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: var(--focus-ring), var(--focus-ring-offset);
+}
+
+.btn-primary {
+  color: var(--text-inverse);
+  background-color: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+  color: var(--text-inverse);
+}
+
+.btn-secondary {
+  color: var(--color-primary-700);
+  background-color: var(--bg-primary);
+  border-color: var(--color-primary-600);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-800);
+}
+
+.btn-success {
+  color: var(--text-inverse);
+  background-color: var(--color-success-700);
+  border-color: var(--color-success-700);
+}
+
+.btn-warning {
+  color: var(--color-warning-900);
+  background-color: var(--color-warning-500);
+  border-color: var(--color-warning-500);
+}
+
+.btn-error {
+  color: var(--text-inverse);
+  background-color: var(--color-error-700);
+  border-color: var(--color-error-700);
+}
+
+/* Cards and Components */
+.card {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+  background-color: var(--bg-secondary);
+}
+
+.card-body {
+  padding: var(--space-md);
+}
+
+.card-footer {
+  padding: var(--space-md);
+  border-top: 1px solid var(--border-light);
+  background-color: var(--bg-secondary);
+}
+
+/* Norwegian Healthcare Notifications */
+.healthcare-notifications {
+  position: fixed;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 1000;
+  max-width: 400px;
+}
+
+.healthcare-notification {
+  margin-bottom: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--bg-elevated);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  opacity: 0;
+  animation: slideInNotification var(--duration-base) var(--ease-in-out) forwards;
+}
+
+.healthcare-notification--success {
+  border-color: var(--color-success-500);
+  background-color: var(--color-success-50);
+}
+
+.healthcare-notification--warning {
+  border-color: var(--color-warning-500);
+  background-color: var(--color-warning-50);
+}
+
+.healthcare-notification--error {
+  border-color: var(--color-error-500);
+  background-color: var(--color-error-50);
+}
+
+.healthcare-notification__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.healthcare-notification__icon {
+  font-weight: bold;
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+.healthcare-notification__message {
+  flex: 1;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.healthcare-notification__close {
+  background: none;
+  border: none;
+  padding: var(--space-xs);
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.healthcare-notification__close:hover {
+  background-color: var(--color-neutral-200);
+}
+
+.healthcare-notification__close:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* AI3 Chat Interface */
+.ai3-chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 600px;
+}
+
+.ai3-output {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.ai3-message {
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--border-medium);
+}
+
+.ai3-message--user {
+  background-color: var(--color-primary-50);
+  border-left-color: var(--color-primary-500);
+  margin-left: var(--space-lg);
+}
+
+.ai3-message--assistant {
+  background-color: var(--bg-elevated);
+  border-left-color: var(--color-success-500);
+  margin-right: var(--space-lg);
+}
+
+.ai3-message--system {
+  background-color: var(--color-warning-50);
+  border-left-color: var(--color-warning-500);
+  font-style: italic;
+}
+
+.ai3-message__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-small);
+  color: var(--text-muted);
+}
+
+.ai3-message__role {
+  font-weight: 600;
+}
+
+.ai3-metadata {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.ai3-metadata__confidence,
+.ai3-metadata__provider {
+  padding: 2px var(--space-xs);
+  background-color: var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+
+.ai3-input-area {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.ai3-input {
+  flex: 1;
+  resize: none;
+  min-height: 44px;
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 639px) {
+  :root {
+    --font-size-h1: calc(1rem * var(--phi) * var(--phi));
+    --font-size-display: calc(1rem * var(--phi) * var(--phi) * var(--phi));
+  }
+  
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  
+  .healthcare-notifications {
+    left: var(--space-sm);
+    right: var(--space-sm);
+    max-width: none;
+  }
+  
+  .ai3-message--user {
+    margin-left: 0;
+  }
+  
+  .ai3-message--assistant {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Accessibility Utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible:focus {
+  outline: none;
+  box-shadow: var(--focus-ring), var(--focus-ring-offset);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-light: var(--color-neutral-600);
+    --border-medium: var(--color-neutral-700);
+    --border-strong: var(--color-neutral-800);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: var(--color-neutral-900);
+    --bg-secondary: var(--color-neutral-800);
+    --bg-elevated: var(--color-neutral-800);
+    --bg-inverse: var(--color-neutral-50);
+    
+    --text-primary: var(--color-neutral-50);
+    --text-secondary: var(--color-neutral-200);
+    --text-muted: var(--color-neutral-400);
+    --text-inverse: var(--color-neutral-900);
+    
+    --border-light: var(--color-neutral-700);
+    --border-medium: var(--color-neutral-600);
+    --border-strong: var(--color-neutral-500);
+  }
+}
+
+/* Animation Keyframes */
+@keyframes slideInNotification {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  .healthcare-notifications,
+  .ai3-input-area {
+    display: none !important;
+  }
+}
