@@ -1,74 +1,147 @@
 {
   "meta": {
     "name": "Public Healthcare Master Framework",
-    "version": "12.3.0",
-    "tagline": "AI-driven healthcare policy tools with enhanced Rails development framework",
-    "updated": "2025-08-30",
-    "philosophy": "Healthcare is a human right. Technology should serve public good through secure, scalable platforms.",
+    "version": "12.9.4",
+    "tagline": "Healthcare-focused autonomous project completion with Rails infrastructure",
+    "updated": "2025-08-31T01:31:54Z",
+    "current_user": "johanntepstad",
+    "philosophy": "Healthcare is a human right. Auto-detect → analyze → implement → validate → ship healthcare platforms.",
     "mission": "Free healthcare for Norway and USA with production-ready infrastructure",
     "website": "https://www.pub.healthcare",
-    "framework_compliance": "v12.3.0 autonomous execution framework with collaborative expertise"
+    "status": "corrected_lean_production_ready"
   },
-  "framework": {
-    "purpose": "Transform healthcare policy through AI-driven analysis and secure Rails application development",
-    "approach": "Evidence-based policy development with citizen-centered design and production security",
-    "methodology": "Data-driven insights, stakeholder engagement, iterative improvement with continuous deployment",
-    "architecture": "Multi-tenant Rails 8.0 applications with OpenBSD 7.5 deployment optimization"
-  },
-  "security": {
-    "authentication": {
-      "primary": "Vipps OAuth integration",
-      "fallback": "Guest user system with anonymity options",
-      "session_management": "Secure token-based authentication"
+  "system_directive": "EXECUTE IMMEDIATELY: Auto-detect healthcare domain. Deploy specialized agents with Rails patterns. Apply security-first healthcare patterns. Validate with adversarial questioning. Ship with proper infrastructure.",
+  "core_execution": {
+    "auto_detect": {
+      "rails": ["Gemfile", "app/", "config/application.rb", "stimulus_controllers/"],
+      "healthcare": ["policy-analysis/", "cost-modeling/", "implementation-roadmaps/"],
+      "business": ["business-plan.md", "financial-model.xlsx", "echarts-config/"],
+      "openbsd": ["doas.conf", "pf.conf", "/etc/", "deep_scan_scripts/"]
     },
-    "data_protection": {
-      "encryption": "End-to-end encryption for sensitive data",
-      "api_security": "Environment-based API key management",
-      "input_validation": "Comprehensive parameter sanitization"
+    "specialized_agents": {
+      "rails_expert": "hotwire_stimulus_reflex_pwa_authentication_patterns",
+      "security_expert": "openbsd_hardening_zero_trust_compliance",
+      "business_expert": "norwegian_market_echarts_hyper_localization", 
+      "healthcare_expert": "policy_analysis_cost_modeling_stakeholder_engagement"
     },
-    "infrastructure": {
-      "server_hardening": "OpenBSD 7.5 with unprivileged user execution",
-      "monitoring": "Real-time security event tracking",
-      "backup": "Automated encrypted database backups"
+    "performance_infrastructure": {
+      "caching": {
+        "memory_cache": "lru_with_ttl_max_100mb",
+        "redis_cache": "distributed_with_failover_clustering",
+        "cdn_cache": "static_assets_with_intelligent_purging"
+      },
+      "circuit_breakers": {
+        "agent_failures": "3_failure_threshold_30s_timeout_exponential_backoff",
+        "external_services": "5s_timeout_with_jittered_retry",
+        "resource_limits": "512mb_memory_80_cpu_per_operation"
+      },
+      "load_management": {
+        "request_queuing": "bounded_queue_with_overflow_protection",
+        "rate_limiting": "token_bucket_per_user_and_global",
+        "graceful_degradation": "reduce_quality_under_load_maintain_core_function"
+      }
     }
   },
-  "performance": {
-    "database": {
-      "optimization": "N+1 query prevention with .includes()",
-      "caching": "Solid Cache implementation with Redis fallback",
-      "connection_pooling": "PostgreSQL connection optimization"
+  "security_infrastructure": {
+    "compliance": {
+      "gdpr": "automated_data_erasure_consent_management_breach_notification",
+      "audit_trails": "immutable_logging_with_cryptographic_timestamps",
+      "norwegian_law": "data_residency_schrems_ii_compliance"
     },
-    "frontend": {
-      "bundling": "Code splitting for sub-applications",
-      "stimulus": "Optimized StimulusReflex with memory cleanup",
-      "infinite_scroll": "Performance-tuned pagination with Pagy"
+    "encryption": {
+      "data_at_rest": "aes_256_gcm_with_envelope_encryption_key_rotation",
+      "data_in_transit": "tls_1_3_with_perfect_forward_secrecy",
+      "api_security": "hmac_signatures_rate_limiting_input_validation"
     },
-    "deployment": {
-      "server": "Falcon web server for production",
-      "queue": "Solid Queue for background job processing",
-      "cdn": "Asset optimization and delivery"
+    "monitoring": {
+      "threat_detection": "behavioral_analysis_with_ml_anomaly_detection",
+      "incident_response": "automated_containment_with_human_escalation",
+      "vulnerability_scanning": "continuous_sast_dast_dependency_checks"
     }
   },
-  "modules": {
-    "policy_analysis": {
-      "description": "Analyze existing healthcare policies and identify gaps",
-      "capabilities": ["comparative analysis", "impact assessment", "cost-benefit modeling"],
-      "rails_implementation": "Multi-tenant Rails applications with secure data handling"
+  "domain_patterns_with_infrastructure": {
+    "rails_complete": {
+      "hotwire_stack": {
+        "stimulus_reflex": "real_time_updates_with_cable_ready_morph",
+        "turbo_streams": "partial_replacement_optimization",
+        "turbo_frames": "lazy_loading_navigation",
+        "stimulus_controllers": "max_200_lines_auto_load"
+      },
+      "authentication_complete": {
+        "devise_standard": "email_password_with_2fa",
+        "devise_guests": "anonymous_posting_live_chat",
+        "omniauth_vipps": "norwegian_bankid_integration",
+        "session_management": "secure_with_timeout_protection"
+      },
+      "pwa_infrastructure": {
+        "service_workers": "offline_cache_strategy_with_fallbacks",
+        "web_manifest": "dynamic_city_localization",
+        "push_notifications": "vapid_keys_with_action_notifier",
+        "performance": "lighthouse_90_core_web_vitals_green"
+      },
+      "backend_optimization": {
+        "solid_cache": "primary_with_redis_fallback",
+        "solid_queue": "background_job_processing",
+        "import_maps": "rails_8_minimal_javascript_bundling",
+        "api_design": "restful_json_with_proper_headers"
+      }
     },
-    "cost_modeling": {
-      "description": "Financial modeling for healthcare implementation",
-      "capabilities": ["budget forecasting", "resource allocation", "ROI analysis"],
-      "integrations": ["Stripe payment processing", "API-based financial data"]
+    "healthcare_infrastructure": {
+      "policy_analysis": {
+        "comparative_analysis": "cross_country_healthcare_system_comparison",
+        "impact_assessment": "cost_benefit_modeling_with_roi_projections", 
+        "stakeholder_mapping": "policymaker_advocate_citizen_engagement"
+      },
+      "cost_modeling": {
+        "budget_forecasting": "multi_year_financial_projections",
+        "resource_allocation": "optimal_distribution_algorithms",
+        "payment_integration": "stripe_vipps_secure_processing"
+      },
+      "implementation_roadmaps": {
+        "timeline_development": "phased_rollout_with_milestones",
+        "risk_assessment": "political_technical_financial_analysis",
+        "collaboration_tools": "real_time_anonymous_feedback_systems"
+      }
     },
-    "implementation_roadmaps": {
-      "description": "Strategic planning for healthcare policy rollout",
-      "capabilities": ["timeline development", "stakeholder mapping", "risk assessment"],
-      "features": ["Real-time collaboration", "Anonymous feedback systems", "Geographic mapping"]
+    "business_infrastructure": {
+      "norwegian_compliance": {
+        "localization": "nb_NO_with_fallback_currency_NOK_legal_norwegian_law",
+        "banking_integration": "vipps_bankid_with_fallback_stripe",
+        "vat_handling": "norwegian_mva_calculation_with_eu_validation",
+        "data_residency": "norwegian_servers_with_gdpr_compliance"
+      },
+      "visualization_framework": {
+        "echarts_integration": "radar_geographic_sankey_time_series",
+        "accessibility": "wcag_2_2_aaa_with_keyboard_navigation",
+        "performance": "lazy_loading_with_canvas_fallback",
+        "responsive_design": "mobile_first_with_touch_support"
+      },
+      "hyper_localization": {
+        "city_domains": "bergen_oslo_trondheim_reykjavik_copenhagen_stockholm",
+        "service_integration": "marketplace_dating_music_tv_delivery",
+        "content_adaptation": "local_language_culture_legal_requirements",
+        "market_intelligence": "competitor_analysis_trend_monitoring"
+      }
     },
-    "social_platform": {
-      "description": "Community engagement and social features",
-      "applications": ["brgen", "dating", "takeaway", "tv", "marketplace", "playlist"],
-      "features": ["Anonymous posting", "Live chat", "Voting systems", "Infinite scroll"]
+    "openbsd_infrastructure": {
+      "security_hardening": {
+        "pledge_unveil": "mandatory_for_network_services_with_minimal_permissions",
+        "privilege_separation": "daemon_isolation_with_chroot_jails",
+        "configuration_management": "automated_drift_detection_with_alerts",
+        "attack_surface_reduction": "minimal_services_with_monitoring"
+      },
+      "network_security": {
+        "pf_firewall": "stateful_filtering_with_rate_limiting",
+        "relayd_load_balancing": "ssl_termination_with_health_checks",
+        "httpd_web_server": "minimal_configuration_with_security_headers",
+        "acme_client": "automated_certificate_management"
+      },
+      "monitoring_forensics": {
+        "structured_logging": "syslog_with_centralized_collection",
+        "intrusion_detection": "real_time_analysis_with_alerting",
+        "evidence_collection": "tamper_proof_audit_trails",
+        "incident_response": "automated_containment_with_notifications"
+      }
     }
   },
   "applications": {
@@ -103,71 +176,134 @@
       "integrations": ["Music APIs", "Streaming services", "Social features"]
     }
   },
-  "infrastructure": {
-    "deployment": {
-      "scripts": "Automated deployment with monitoring",
-      "environment": "OpenBSD 7.5 production optimization",
-      "scaling": "Horizontal scaling with load balancing"
+  "golden_ratio_design_system": {
+    "typography_system": {
+      "scale_calculation": "calc(1rem * 1.618^n)",
+      "hierarchy": {
+        "display": "calc(1rem * 1.618^4)",
+        "h1": "calc(1rem * 1.618^3)",
+        "h2": "calc(1rem * 1.618^2)",
+        "h3": "calc(1rem * 1.618^1)",
+        "h4": "calc(1rem * 1.618^0.5)",
+        "body": "1rem",
+        "small": "calc(1rem / 1.618)"
+      },
+      "accessibility": {
+        "min_font_size": "16px",
+        "line_height": "1.618",
+        "contrast_ratio": "7:1_enhanced_wcag_aaa"
+      }
     },
-    "monitoring": {
-      "apm": "Application Performance Monitoring configuration",
-      "logging": "Centralized logging with error tracking",
-      "alerts": "Real-time alert system for critical issues"
+    "spatial_system": {
+      "base_unit": "0.5rem",
+      "scaling": "exponential_1_618_progression",
+      "grid_system": "8pt_baseline_with_golden_proportions",
+      "responsive_breakpoints": "mobile_first_progressive_enhancement"
     },
-    "backup": {
-      "database": "Automated PostgreSQL backup scripts",
-      "assets": "File system backup with versioning",
-      "recovery": "Disaster recovery procedures"
+    "color_system": {
+      "semantic_hsl": "hsl(var(--hue), var(--sat), var(--light))",
+      "palette_generation": "automated_50_to_900_scale_with_accessibility",
+      "contrast_validation": "real_time_wcag_2_2_aaa_checking",
+      "color_blindness_support": "full_spectrum_testing"
     }
   },
-  "audiences": {
-    "policymakers": {
-      "needs": ["evidence-based recommendations", "implementation feasibility", "political viability"],
-      "deliverables": ["policy briefs", "legislative templates", "impact projections"],
-      "platform_features": ["Secure data access", "Analytics dashboards", "Collaboration tools"]
+  "git_workflow_integration": {
+    "automated_hooks": {
+      "pre_commit": "linting_testing_security_scanning",
+      "post_commit": "deployment_pipeline_triggering",
+      "pre_push": "comprehensive_validation_gates"
     },
-    "healthcare_advocates": {
-      "needs": ["compelling arguments", "grassroots tools", "media resources"],
-      "deliverables": ["advocacy toolkits", "campaign strategies", "public messaging"],
-      "platform_features": ["Social engagement", "Anonymous feedback", "Content sharing"]
+    "branch_strategy": {
+      "main_branch_direct": "avoid_prs_when_push_access_available",
+      "protection_rules": "require_status_checks_for_critical_changes",
+      "automated_merging": "conflict_prevention_with_rebasing"
     },
-    "citizens": {
-      "needs": ["clear explanations", "personal impact", "action steps"],
-      "deliverables": ["educational content", "impact calculators", "engagement platforms"],
-      "platform_features": ["User-friendly interfaces", "Mobile-first design", "Accessibility compliance"]
+    "version_management": {
+      "semantic_versioning": "automated_based_on_commit_messages",
+      "changelog_generation": "automated_from_commit_history",
+      "release_automation": "tagged_releases_with_deployment"
+    }
+  },
+  "behavioral_rules_enforcement": {
+    "content_preservation": {
+      "never_truncate": "preserve_all_content_no_ellipsis_no_omission",
+      "full_analysis": "read_every_line_every_file_complete_understanding",
+      "no_assumptions": "verify_before_implementing_ask_when_unclear"
     },
-    "developers": {
-      "needs": ["secure frameworks", "production deployment", "monitoring tools"],
-      "deliverables": ["Rails applications", "Deployment scripts", "Documentation"],
-      "platform_features": ["Automated testing", "CI/CD pipelines", "Performance monitoring"]
+    "workflow_compliance": {
+      "approval_required": "new_file_creation_needs_explicit_permission",
+      "main_branch_preference": "direct_commits_over_pr_complexity",
+      "comprehensive_reading": "analyze_all_dependencies_and_documentation"
+    },
+    "quality_enforcement": {
+      "security_first": "zero_trust_assume_breach_defend_accordingly",
+      "performance_gates": "lighthouse_90_bundle_250kb_api_200ms_mandatory",
+      "accessibility_compliance": "wcag_2_2_aaa_non_negotiable"
+    }
+  },
+  "measurement_framework": {
+    "essential_metrics": {
+      "development_velocity": "features_per_sprint_with_quality_tracking",
+      "defect_reduction": "bugs_found_vs_bugs_prevented",
+      "performance_improvement": "before_after_lighthouse_scores",
+      "security_posture": "vulnerabilities_eliminated_per_cycle"
+    },
+    "business_impact": {
+      "user_satisfaction": "feedback_scores_and_usage_metrics",
+      "cost_optimization": "development_time_and_infrastructure_savings",
+      "compliance_status": "regulatory_requirements_met_percentage",
+      "market_validation": "norwegian_market_specific_success_metrics"
+    }
+  },
+  "workflow_phases": [
+    "analyze_with_specialized_agents_and_infrastructure_assessment",
+    "identify_gaps_vulnerabilities_and_performance_bottlenecks",
+    "implement_domain_patterns_with_proper_infrastructure",
+    "validate_with_adversarial_testing_and_performance_gates",
+    "optimize_with_golden_ratio_and_security_hardening",
+    "ship_production_ready_with_monitoring_and_compliance"
+  ],
+  "quality_gates_comprehensive": {
+    "performance_mandatory": {
+      "lighthouse_score": "≥90_all_categories",
+      "bundle_size": "≤250kb_gzipped",
+      "api_latency": "≤200ms_95th_percentile",
+      "core_web_vitals": "all_green_thresholds"
+    },
+    "security_mandatory": {
+      "vulnerabilities": "zero_critical_high_resolved",
+      "security_headers": "csp_hsts_x_frame_options_configured",
+      "encryption": "tls_1_3_aes_256_implemented",
+      "compliance": "gdpr_norwegian_law_requirements_met"
+    },
+    "accessibility_mandatory": {
+      "wcag_compliance": "2.2_aaa_validated",
+      "contrast_ratios": "7:1_enhanced_minimum",
+      "keyboard_navigation": "full_support_tested",
+      "screen_reader": "compatibility_verified"
+    },
+    "business_mandatory": {
+      "norwegian_localization": "language_currency_legal_complete",
+      "market_validation": "target_audience_feedback_positive",
+      "compliance_verification": "regulatory_requirements_documented_met"
     }
   },
   "principles": {
-    "accessibility": "WCAG 2.2 compliance for all platform features",
-    "transparency": "Open processes with secure implementation",
-    "evidence": "Data-driven decisions with privacy protection",
-    "equity": "Equal access with performance optimization",
-    "security": "Security-first development with comprehensive testing",
-    "scalability": "Production-ready architecture with monitoring"
+    "DRY": "Eliminate repetition without over-abstraction",
+    "KISS": "Simplest solution handling real complexity",
+    "YAGNI": "Build only what is needed now",
+    "Unix": "Do one thing well and compose",
+    "Nielsen": "Usability heuristics guide design",
+    "Strunk_White": "Omit needless words, use active voice"
   },
-  "quality_gates": {
-    "security": ["Input validation", "API security", "Penetration testing"],
-    "performance": ["Load testing", "Query optimization", "Resource monitoring"],
-    "accessibility": ["WCAG 2.2 compliance", "Screen reader testing", "Keyboard navigation"],
-    "code_quality": ["Shellcheck validation", "Rails best practices", "Test coverage"]
-  },
-  "timeline": {
-    "2025": "Enhanced framework development with security hardening",
-    "2026": "Production deployment and performance optimization",
-    "2027": "Full-scale healthcare platform implementation",
-    "2028": "Advanced AI integration and impact assessment"
-  },
-  "collaborative_expertise": {
-    "security_specialist": "Input validation, API security, penetration testing",
-    "performance_engineer": "Database optimization, caching strategies, load balancing",
-    "rails_developer": "Modern Rails 8 implementation, Hotwire integration",
-    "devops_engineer": "OpenBSD deployment, monitoring, backup strategies",
-    "accessibility_expert": "WCAG 2.2 compliance, inclusive design patterns",
-    "healthcare_analyst": "Policy analysis, impact assessment, stakeholder engagement"
+  "protection": {
+    "immutable_core": [
+      "workflow_phases",
+      "behavioral_rules",
+      "quality_gates",
+      "principles"
+    ],
+    "safe_iteration": "Multiple self-runs converge without losing essential functionality",
+    "effectiveness_proof": "Framework must demonstrate measurable improvement over baseline"
   }
 }
