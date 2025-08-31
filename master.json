@@ -1,1 +1,1 @@
-{"infrastructure": {"caching": true, "circuit_breakers": true, "security_compliance": true, "git_workflow": true}, "ceremony": false}
+{"version": "12.9.4", "infrastructure": {"caching": true, "circuit_breakers": true, "security_compliance": true, "git_workflow": true}, "ceremonial_features": false}
