@@ -1,0 +1,280 @@
+#!/bin/bash
+# Pre-commit hook for Public Healthcare Platform
+# Norwegian healthcare compliance with security scanning
+
+set -e
+
+echo "🏥 Running Public Healthcare Platform pre-commit checks..."
+
+# Check if we're in a Rails project
+if [ ! -f "Gemfile" ] || [ ! -f "config/application.rb" ]; then
+    echo "❌ Not a Rails project - skipping healthcare-specific checks"
+    exit 0
+fi
+
+# Color codes for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to print colored output
+print_status() {
+    echo -e "${BLUE}[HEALTHCARE]${NC} $1"
+}
+
+print_success() {
+    echo -e "${GREEN}✓${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}✗${NC} $1"
+}
+
+# Check for Norwegian compliance requirements
+check_norwegian_compliance() {
+    print_status "Checking Norwegian healthcare compliance..."
+    
+    # Check for GDPR compliance markers
+    if git diff --cached --name-only | grep -E '\.(rb|js|ts)$' | xargs grep -l "personal_data\|health_data\|medical_record" >/dev/null 2>&1; then
+        if ! git diff --cached | grep -q "GDPR_COMPLIANT\|gdpr_compliance"; then
+            print_warning "Personal/health data detected but no GDPR compliance markers found"
+            echo "Please ensure GDPR compliance is documented in your changes"
+        fi
+    fi
+    
+    # Check for Norwegian localization
+    if git diff --cached --name-only | grep -E 'locale|i18n' >/dev/null 2>&1; then
+        if ! git diff --cached | grep -q "nb_NO\|nb-NO\|norwegian"; then
+            print_warning "Localization changes without Norwegian locale detected"
+        fi
+    fi
+    
+    # Check for healthcare data retention policies
+    if git diff --cached --name-only | grep -E 'model|migration' >/dev/null 2>&1; then
+        if git diff --cached | grep -q "created_at\|updated_at" && ! git diff --cached | grep -q "retention_period\|expires_at"; then
+            print_warning "New data models without retention policies (Norwegian law requires 10-year healthcare data retention)"
+        fi
+    fi
+    
+    print_success "Norwegian compliance check completed"
+}
+
+# Security scanning with focus on healthcare data
+security_scan() {
+    print_status "Running security scans for healthcare platform..."
+    
+    # Check for hardcoded secrets
+    if git diff --cached | grep -iE '(password|secret|key|token).*[=:]\s*["\'][^"\']{8,}'; then
+        print_error "Potential hardcoded secrets detected!"
+        echo "Please use Rails credentials or environment variables"
+        exit 1
+    fi
+    
+    # Check for SQL injection vulnerabilities
+    if git diff --cached | grep -E 'execute\(.*\$\{.*\}\)|query\(.*\+.*\)|where\(.*\+.*\)'; then
+        print_error "Potential SQL injection vulnerability detected!"
+        echo "Use parameterized queries and ActiveRecord methods"
+        exit 1
+    fi
+    
+    # Check for XSS vulnerabilities
+    if git diff --cached | grep -E 'html_safe|raw\(|mark_as_safe'; then
+        print_warning "Potential XSS vulnerability - html_safe/raw detected"
+        echo "Ensure all user input is properly sanitized"
+    fi
+    
+    # Check for insecure HTTP requests
+    if git diff --cached | grep -E 'http://(?!localhost|127\.0\.0\.1)'; then
+        print_error "Insecure HTTP requests detected!"
+        echo "All external requests must use HTTPS for healthcare data protection"
+        exit 1
+    fi
+    
+    print_success "Security scan completed"
+}
+
+# Ruby/Rails specific checks
+rails_checks() {
+    print_status "Running Rails healthcare platform checks..."
+    
+    # Check if Bundler is available
+    if command -v bundle >/dev/null 2>&1; then
+        # Bundle audit for known vulnerabilities
+        if command -v bundle-audit >/dev/null 2>&1; then
+            print_status "Checking for known vulnerabilities..."
+            if ! bundle audit check --update; then
+                print_error "Vulnerability scan failed!"
+                echo "Run 'bundle audit' and fix vulnerabilities before committing"
+                exit 1
+            fi
+            print_success "No known vulnerabilities found"
+        else
+            print_warning "bundle-audit not installed - skipping vulnerability check"
+            echo "Install with: gem install bundler-audit"
+        fi
+        
+        # Check for deprecated Rails features
+        if bundle exec rails version >/dev/null 2>&1; then
+            if git diff --cached | grep -E 'before_filter|skip_before_filter'; then
+                print_warning "Deprecated Rails callbacks detected (use before_action)"
+            fi
+            
+            if git diff --cached | grep -E 'attr_accessible|attr_protected'; then
+                print_warning "Deprecated Rails mass assignment protection detected"
+            fi
+        fi
+    fi
+    
+    print_success "Rails checks completed"
+}
+
+# JavaScript/TypeScript checks
+javascript_checks() {
+    if git diff --cached --name-only | grep -E '\.(js|ts|jsx|tsx)$' >/dev/null; then
+        print_status "Running JavaScript healthcare platform checks..."
+        
+        # Check for console.log statements
+        if git diff --cached | grep -E 'console\.(log|debug|info)'; then
+            print_warning "Console statements detected - consider removing for production"
+        fi
+        
+        # Check for eval usage
+        if git diff --cached | grep -E '\beval\s*\('; then
+            print_error "eval() usage detected - potential security risk!"
+            exit 1
+        fi
+        
+        # Check for innerHTML usage
+        if git diff --cached | grep -E '\.innerHTML\s*='; then
+            print_warning "innerHTML usage detected - potential XSS risk"
+            echo "Consider using textContent or proper DOM manipulation"
+        fi
+        
+        print_success "JavaScript checks completed"
+    fi
+}
+
+# Database migration checks for Norwegian healthcare compliance
+migration_checks() {
+    if git diff --cached --name-only | grep -E 'db/migrate' >/dev/null; then
+        print_status "Checking database migrations for healthcare compliance..."
+        
+        # Check for missing indexes on foreign keys
+        if git diff --cached | grep -E 'add_reference|references' && ! git diff --cached | grep -E 'index:|add_index'; then
+            print_warning "Foreign key without index detected - may impact performance"
+        fi
+        
+        # Check for reversible migrations
+        if git diff --cached | grep -E 'def change' && git diff --cached | grep -E 'execute\(|remove_column|drop_table'; then
+            print_warning "Potentially irreversible migration detected"
+            echo "Consider using up/down methods for complex migrations"
+        fi
+        
+        # Check for healthcare data protection
+        if git diff --cached | grep -E 'health_record|patient_data|medical_info'; then
+            if ! git diff --cached | grep -E 'encrypted|cipher'; then
+                print_warning "Healthcare data column without encryption detected"
+                echo "Norwegian law requires encryption of sensitive health data"
+            fi
+        fi
+        
+        print_success "Migration checks completed"
+    fi
+}
+
+# Performance checks
+performance_checks() {
+    print_status "Running performance checks..."
+    
+    # Check for N+1 query patterns
+    if git diff --cached | grep -E '\.each.*\.(find|where|first)'; then
+        print_warning "Potential N+1 query detected"
+        echo "Consider using includes(), joins(), or preload()"
+    fi
+    
+    # Check for missing database indexes
+    if git diff --cached | grep -E 'WHERE.*=|ORDER BY' && ! git diff --cached | grep -E 'index|INDEX'; then
+        print_warning "SQL query without apparent index"
+    fi
+    
+    print_success "Performance checks completed"
+}
+
+# Accessibility checks for Norwegian healthcare platform
+accessibility_checks() {
+    if git diff --cached --name-only | grep -E '\.(erb|html|js|css)$' >/dev/null; then
+        print_status "Checking accessibility for Norwegian healthcare compliance..."
+        
+        # Check for missing alt attributes
+        if git diff --cached | grep -E '<img[^>]*>' | grep -v 'alt='; then
+            print_warning "Images without alt attributes detected"
+            echo "WCAG 2.2 AAA compliance requires alt text for all images"
+        fi
+        
+        # Check for proper heading structure
+        if git diff --cached | grep -E '<h[1-6]'; then
+            print_status "Heading structure detected - ensure logical hierarchy"
+        fi
+        
+        # Check for proper form labels
+        if git diff --cached | grep -E '<input[^>]*>' | grep -v 'aria-label\|<label'; then
+            print_warning "Form inputs without labels detected"
+            echo "Norwegian accessibility laws require proper form labeling"
+        fi
+        
+        print_success "Accessibility checks completed"
+    fi
+}
+
+# Documentation checks for Norwegian compliance
+documentation_checks() {
+    print_status "Checking documentation for Norwegian healthcare compliance..."
+    
+    # Check if new files need documentation
+    new_files=$(git diff --cached --name-only --diff-filter=A | grep -E '\.(rb|js|py)$' | wc -l)
+    if [ "$new_files" -gt 0 ]; then
+        print_status "$new_files new code files added"
+        if [ ! -f "docs/API.md" ] && git diff --cached --name-only | grep -E 'controller|api'; then
+            print_warning "API changes without documentation"
+            echo "Consider updating docs/API.md"
+        fi
+    fi
+    
+    # Check for Norwegian translations
+    if git diff --cached --name-only | grep -E 'config/locales' >/dev/null; then
+        if ! git diff --cached | grep -q 'nb:'; then
+            print_warning "Locale changes without Norwegian translations"
+        fi
+    fi
+    
+    print_success "Documentation checks completed"
+}
+
+# Main execution
+main() {
+    echo "🇳🇴 Norwegian Healthcare Platform Pre-commit Validation"
+    echo "================================================="
+    
+    # Run all checks
+    check_norwegian_compliance
+    security_scan
+    rails_checks
+    javascript_checks
+    migration_checks
+    performance_checks
+    accessibility_checks
+    documentation_checks
+    
+    echo "================================================="
+    print_success "All pre-commit checks passed! 🎉"
+    echo "Ready to commit healthcare-compliant code to Norwegian infrastructure"
+}
+
+# Execute main function
+main
