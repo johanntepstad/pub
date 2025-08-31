@@ -28,4 +28,88 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  brand:
+    name: "Pub Healthcare"
+  
+  meta:
+    description: "Comprehensive healthcare platform with AI³ orchestration"
+    keywords: "healthcare, AI, rails, norwegian, openbsd, security"
+  
+  navigation:
+    main: "Main navigation"
+    amber: "Amber"
+    brgen: "Brgen"
+    privcam: "PrivCam"
+    bsdports: "BSD Ports"
+    hjerterom: "Hjerterom"
+    profile: "Profile"
+    login: "Login"
+    logout: "Logout"
+    signup: "Sign Up"
+    toggle_menu: "Toggle menu"
+  
+  language:
+    norwegian: "Norsk"
+    english: "English"
+  
+  accessibility:
+    skip_to_content: "Skip to main content"
+    language_selector: "Select language"
+  
+  footer:
+    company: "Company"
+    about: "About"
+    contact: "Contact"
+    careers: "Careers"
+    press: "Press"
+    applications: "Applications"
+    support: "Support"
+    help: "Help"
+    documentation: "Documentation"
+    api: "API"
+    status: "Status"
+    legal: "Legal"
+    privacy: "Privacy Policy"
+    terms: "Terms of Service"
+    gdpr: "GDPR"
+    cookies: "Cookie Policy"
+    norwegian_registered: "Registered in Norway"
+    org_number: "Org. number"
+    gdpr_compliant: "GDPR Compliant"
+    data_residency: "Norwegian Data Residency"
+    vat_registered: "VAT Registered"
+    breg_verified: "Verified with Brønnøysund Register Centre"
+    gdpr_verified: "GDPR Compliance Verified"
+    wcag_verified: "WCAG 2.2 AAA Accessibility"
+    all_rights_reserved: "All rights reserved"
+    built_with: "Built with"
+  
+  badges:
+    breg: "BREG"
+    gdpr: "GDPR"
+    wcag: "WCAG"
+  
+  social:
+    github: "GitHub"
+    email: "Email"
+  
+  # Rails applications
+  amber:
+    title: "Amber - Fashion & Style"
+    description: "Fashion and style management application"
+  
+  brgen:
+    title: "Brgen - Social Platform"
+    description: "Social features and content generation"
+  
+  privcam:
+    title: "PrivCam - Privacy Camera"
+    description: "Privacy-focused camera application"
+  
+  bsdports:
+    title: "BSD Ports - Package Management"
+    description: "BSD ports management system"
+  
+  hjerterom:
+    title: "Hjerterom - Personal Wellness"
+    description: "Personal spaces and wellness management"

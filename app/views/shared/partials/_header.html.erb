@@ -1,0 +1,93 @@
+<header class="main-header" role="banner">
+  <nav class="navbar flex justify-between items-center p-md" aria-label="Main navigation">
+    <div class="navbar-brand">
+      <%= link_to root_path, class: "logo flex items-center gap-sm" do %>
+        <span class="logo-text font-h2" aria-label="Pub Healthcare">
+          Pub Healthcare
+        </span>
+      <% end %>
+    </div>
+
+    <div class="navbar-nav flex items-center gap-md">
+      <!-- App Navigation -->
+      <ul class="nav-links flex items-center gap-sm" role="menubar">
+        <li role="none">
+          <%= link_to "#", class: "nav-link", role: "menuitem" do %>
+            Amber
+          <% end %>
+        </li>
+        <li role="none">
+          <%= link_to "#", class: "nav-link", role: "menuitem" do %>
+            Brgen
+          <% end %>
+        </li>
+        <li role="none">
+          <%= link_to "#", class: "nav-link", role: "menuitem" do %>
+            PrivCam
+          <% end %>
+        </li>
+        <li role="none">
+          <%= link_to "#", class: "nav-link", role: "menuitem" do %>
+            BSD Ports
+          <% end %>
+        </li>
+        <li role="none">
+          <%= link_to "#", class: "nav-link", role: "menuitem" do %>
+            Hjerterom
+          <% end %>
+        </li>
+      </ul>
+
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <select class="locale-select" aria-label="Select language">
+          <option value="nb">Norsk</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-toggle" 
+            aria-expanded="false" 
+            aria-controls="mobile-menu"
+            aria-label="<%= t('navigation.toggle_menu') %>">
+      <span class="sr-only"><%= t('navigation.toggle_menu') %></span>
+      <!-- Hamburger icon -->
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <ul class="mobile-nav-links" role="menu">
+      <li role="none">
+        <%= link_to "#", role: "menuitem" do %>
+          <%= t('navigation.amber') %>
+        <% end %>
+      </li>
+      <li role="none">
+        <%= link_to "#", role: "menuitem" do %>
+          <%= t('navigation.brgen') %>
+        <% end %>
+      </li>
+      <li role="none">
+        <%= link_to "#", role: "menuitem" do %>
+          <%= t('navigation.privcam') %>
+        <% end %>
+      </li>
+      <li role="none">
+        <%= link_to "#", role: "menuitem" do %>
+          <%= t('navigation.bsdports') %>
+        <% end %>
+      </li>
+      <li role="none">
+        <%= link_to "#", role: "menuitem" do %>
+          <%= t('navigation.hjerterom') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</header>

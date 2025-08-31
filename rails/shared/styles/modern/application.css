@@ -1,0 +1,302 @@
+/* Modern CSS Framework - Rails Shared Styles */
+/* Golden Ratio Design System with CSS Grid and Flexbox */
+
+:root {
+  /* Golden Ratio Typography Scale */
+  --scale-ratio: 1.618;
+  --base-font-size: 1rem;
+  --font-display: calc(var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio));
+  --font-h1: calc(var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio));
+  --font-h2: calc(var(--base-font-size) * var(--scale-ratio) * var(--scale-ratio));
+  --font-h3: calc(var(--base-font-size) * var(--scale-ratio));
+  --font-h4: calc(var(--base-font-size) * var(--scale-ratio) * 0.5);
+  --font-body: var(--base-font-size);
+  --font-small: calc(var(--base-font-size) / var(--scale-ratio));
+
+  /* Spatial System */
+  --spacing-unit: 0.5rem;
+  --spacing-xs: var(--spacing-unit);
+  --spacing-sm: calc(var(--spacing-unit) * var(--scale-ratio));
+  --spacing-md: calc(var(--spacing-unit) * var(--scale-ratio) * var(--scale-ratio));
+  --spacing-lg: calc(var(--spacing-unit) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio));
+  --spacing-xl: calc(var(--spacing-unit) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio));
+
+  /* Semantic Color System */
+  --hue-primary: 200;
+  --hue-secondary: 45;
+  --hue-accent: 270;
+  --hue-success: 120;
+  --hue-warning: 30;
+  --hue-error: 0;
+  --hue-neutral: 0;
+
+  /* Color Palette */
+  --color-primary: hsl(var(--hue-primary), 100%, 50%);
+  --color-primary-light: hsl(var(--hue-primary), 100%, 70%);
+  --color-primary-dark: hsl(var(--hue-primary), 100%, 30%);
+  
+  --color-secondary: hsl(var(--hue-secondary), 100%, 70%);
+  --color-accent: hsl(var(--hue-accent), 60%, 60%);
+  
+  --color-text: hsl(var(--hue-neutral), 0%, 20%);
+  --color-text-light: hsl(var(--hue-neutral), 0%, 40%);
+  --color-background: hsl(var(--hue-neutral), 0%, 98%);
+  --color-surface: hsl(var(--hue-neutral), 0%, 100%);
+  
+  --color-success: hsl(var(--hue-success), 60%, 50%);
+  --color-warning: hsl(var(--hue-warning), 80%, 60%);
+  --color-error: hsl(var(--hue-error), 70%, 55%);
+
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Accessibility */
+  --line-height-base: var(--scale-ratio);
+  --line-height-tight: 1.25;
+  --line-height-loose: 1.75;
+  
+  /* Animation */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* Minimum font size for accessibility */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: var(--font-body);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.display { font-size: var(--font-display); }
+h1 { font-size: var(--font-h1); }
+h2 { font-size: var(--font-h2); }
+h3 { font-size: var(--font-h3); }
+h4 { font-size: var(--font-h4); }
+
+p {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-base);
+}
+
+.text-small {
+  font-size: var(--font-small);
+}
+
+/* Layout Grid System */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid-auto-fit { 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+}
+
+.grid-auto-fill { 
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+/* Spacing Utilities */
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+.m-xs { margin: var(--spacing-xs); }
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+.m-xl { margin: var(--spacing-xl); }
+
+/* Component Styles */
+.card {
+  background: var(--color-surface);
+  border-radius: calc(var(--spacing-unit) * 0.5);
+  padding: var(--spacing-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: calc(var(--spacing-unit) * 0.5);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 44px; /* Accessibility minimum touch target */
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  font-size: var(--font-body);
+  border: 2px solid hsl(var(--hue-neutral), 0%, 85%);
+  border-radius: calc(var(--spacing-unit) * 0.5);
+  transition: border-color var(--transition-fast);
+  min-height: 44px; /* Accessibility minimum */
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px hsla(var(--hue-primary), 100%, 50%, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .flex-row {
+    flex-direction: column;
+  }
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for keyboard navigation */
+*:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-text: black;
+    --color-background: white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

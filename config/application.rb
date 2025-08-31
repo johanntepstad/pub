@@ -34,7 +34,7 @@ module PubHealthcare
     config.cache_store = :solid_cache_store
 
     # Security configurations
-    config.force_ssl = true
+    config.force_ssl = Rails.env.production?
     config.ssl_options = {
       hsts: { expires: 1.year, subdomains: true, preload: true }
     }
@@ -50,15 +50,17 @@ module PubHealthcare
     config.active_record.schema_format = :sql
     
     # AI3 and performance settings
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
-      end
-    end
+    # TODO: Add rack-cors gem if CORS is needed
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
+    #   end
+    # end
 
     # Circuit breaker and rate limiting configuration
-    config.middleware.use "CircuitBreakerMiddleware"
-    config.middleware.use "RateLimitMiddleware"
+    # TODO: Implement these middleware classes
+    # config.middleware.use "CircuitBreakerMiddleware"
+    # config.middleware.use "RateLimitMiddleware"
   end
 end

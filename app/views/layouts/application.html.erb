@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html data-style="modern" lang="<%= I18n.locale %>">
   <head>
-    <title><%= content_for(:title) || "Pub Healthcare" %></title>
+    <title><%= content_for(:title) || t('brand.name') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="<%= content_for(:description) || t('meta.description') %>">
+    <meta name="keywords" content="<%= content_for(:keywords) || t('meta.keywords') %>">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,11 +20,44 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <%# Include shared styles %>
+    <%= stylesheet_link_tag "shared/modern", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "shared/legacy", "data-turbo-track": "reload" %>
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    
+    <%# Style toggle utility %>
+    <%= javascript_include_tag "style_toggle", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="flex flex-col min-h-screen">
+    <%# Skip link for accessibility %>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded">
+      <%= t('accessibility.skip_to_content') %>
+    </a>
+
+    <%# Shared header %>
+    <%= render 'shared/partials/header' %>
+
+    <%# Flash messages %>
+    <% if notice %>
+      <div class="alert alert-success" role="alert" aria-live="polite">
+        <%= notice %>
+      </div>
+    <% end %>
+    
+    <% if alert %>
+      <div class="alert alert-error" role="alert" aria-live="assertive">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <%# Main content area %>
+    <main id="main-content" class="flex-1 p-md" role="main">
+      <%= yield %>
+    </main>
+
+    <%# Shared footer %>
+    <%= render 'shared/partials/footer' %>
   </body>
 </html>
