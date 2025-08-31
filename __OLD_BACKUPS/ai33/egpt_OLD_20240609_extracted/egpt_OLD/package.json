@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@stimulus-components/carousel": "^6.0.0",
+    "packery": "^2.1.2"
+  }
+}
