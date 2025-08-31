@@ -1,0 +1,9 @@
+<h1>Clothing Catalog</h1>
+
+<%= form_with url: clothings_path, method: :get, local: false, data: { reflex: "input->ClothingReflex#search" } do |form| %>
+  <%= form.text_field :query, placeholder: "Search clothing...", autofocus: true, data: { clothing_target: "query" } %>
+<% end %>
+
+<div data-controller="carousel" id="clothing-list" class="clothing-grid">
+  <%= render 'clothing_list', clothings: @clothings %>
+</div>

@@ -1,0 +1,38 @@
+require_relative 'weaviate_helper'
+require 'langchainrb'
+require 'gpt_neox'
+require 'flan_t5'
+require 'bloom'
+
+class RAGIntegration
+  def initialize(weaviate_helper)
+    @gpt4 = Langchainrb::LLM::OpenAI.new(model: "gpt-4o")
+    @gpt_neox = GPTNeoX::Client.new
+    @flan_t5 = FlanT5::Client.new
+    @bloom = Bloom::Client.new
+    @weaviate_helper = weaviate_helper
+  end
+
+  def generate_response(query)
+    # Step 1: Initial response from GPT-4o
+    initial_response = @gpt4.generate(prompt: query)
+
+    # Step 2: Get insights from additional LLMs
+    neox_response = @gpt_neox.generate(prompt: query)
+    flan_t5_response = @flan_t5.generate(prompt: query)
+    bloom_response = @bloom.generate(prompt: query)
+
+    # Step 3: Retrieve relevant documents from Weaviate
+    weaviate_response = @weaviate_helper.search_vector(query)
+
+    # Step 4: Refine and streamline using GPT-4o
+    final_input = "Initial GPT-4o Response: #{initial_response}\n" +
+                  "GPT-NeoX Response: #{neox_response}\n" +
+                  "Flan-T5 Response: #{flan_t5_response}\n" +
+                  "Bloom Response: #{bloom_response}\n" +
+                  "Weaviate Retrieval: #{weaviate_response}"
+
+    final_response = @gpt4.generate(prompt: final_input)
+    final_response
+  end
+end

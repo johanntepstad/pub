@@ -1,0 +1,255 @@
+<html lang="en"><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Stimulus Reference</title>
+  <link rel="canonical" href="https://stimulus.hotwired.dev/reference/targets" />
+
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="mask-icon" href="/assets/favicon.svg" color="#000000" />
+  <link rel="apple-touch-icon" href="/assets/favicon-196x196.png" />
+
+  <link rel="preload" href="/assets/fonts/Bitter-Roman.woff2" as="font" type="font/woff2" crossorigin="" />
+  <link rel="preload" href="/assets/fonts/Bitter-Italic.woff2" as="font" type="font/woff2" crossorigin="" />
+  <link rel="preload" href="/assets/fonts/Jost-Roman.woff2" as="font" type="font/woff2" crossorigin="" />
+  <link rel="preload" href="/assets/fonts/Jost-Italic.woff2" as="font" type="font/woff2" crossorigin="" />
+  <link rel="preload" href="/assets/fonts/RobotoMono-Roman.woff2" as="font" type="font/woff2" crossorigin="" />
+  <link rel="preload" href="/assets/fonts/RobotoMono-Italic.woff2" as="font" type="font/woff2" crossorigin="" />
+
+  <link rel="stylesheet" href="/assets/main.css" />
+  <script src="/assets/main.js" type="module"></script>
+  <script defer="" data-domain="stimulus.hotwired.dev" src="https://plausible.io/js/script.js"></script>
+</head>
+
+
+  <body>
+
+    <a class="nav-skip" href="#content">Skip to content</a>
+
+<nav class="jump">
+  <ul class="jump__list">
+    <li><a class="jump__list-link jump__list-link--hotwire" href="https://hotwired.dev">Hotwire:</a></li>
+    <li><a class="jump__list-link" href="https://turbo.hotwired.dev">Turbo</a></li>
+    <li><a class="jump__list-link jump__list-link--active" href="https://stimulus.hotwired.dev">Stimulus</a></li>
+    <li><a class="jump__list-link" href="https://strada.hotwired.dev">Strada</a></li>
+  </ul>
+</nav>
+
+
+    <div class="nav__github-corner">
+  <svg width="60" height="60" viewBox="0 0 250 250" version="1.1" xmlns="github-corner" style="fill:#000000; color:#FFFFFF;" aria-hidden="true">
+	<a href="https://github.com/hotwired/stimulus/tree/main/docs/./reference/targets.md" target="_blank" class="github-corner">
+	<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+	<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="#FFFFFF" style="transform-origin: 130px 106px;" class="octo-arm">
+	</path>
+	<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="#FFFFFF" class="octo-body">
+	</path>
+</a>
+</svg>
+</div>
+
+<main class="grid docs">
+
+  <header class="docs__index grid__custom-item">
+    <a class="nav-logo" href="/" aria-label="Stimulus">
+  <svg class="logo" width="370" height="60" viewBox="0 0 370 60" xmlns="http://www.w3.org/2000/svg">
+  <g class="logo__icon" fill="#D9C6A4">
+    <path d="M1.76 1.85885e-08H58.2399C58.7016 -6.70275e-05 59.1447 0.181237 59.474 0.50484C59.8032 0.828443 59.9921 1.26844 59.9999 1.73V7.37823C59.9999 7.87239 59.9999 8.11947 59.9038 8.30822C59.8192 8.47424 59.6842 8.60923 59.5182 8.69382C59.3294 8.78999 59.0823 8.78999 58.5882 8.78999H45.92C44.7722 8.83556 43.6502 9.14343 42.64 9.68999L15.64 25.55C14.6261 26.0964 13.5008 26.4042 12.35 26.45H1.41176C0.9176 26.45 0.670518 26.45 0.481773 26.3538C0.315747 26.2692 0.180765 26.1342 0.0961706 25.9682C0 25.7795 0 25.5324 0 25.0382V17.2717C0 16.7776 0 16.5305 0.0961706 16.3418C0.180765 16.1757 0.315747 16.0408 0.481773 15.9562C0.670518 15.86 0.9176 15.86 1.41176 15.86H12.35C13.5001 15.9106 14.6243 16.2181 15.64 16.76L18.64 18.51C19.1037 18.7494 19.6181 18.8743 20.14 18.8743C20.6619 18.8743 21.1762 18.7494 21.64 18.51L25.48 16.25C25.6438 16.1661 25.7812 16.0386 25.8772 15.8815C25.9732 15.7245 26.024 15.544 26.024 15.36C26.024 15.1759 25.9732 14.9955 25.8772 14.8384C25.7812 14.6814 25.6438 14.5539 25.48 14.47L17.4 9.71999C16.3879 9.17798 15.2669 8.8704 14.12 8.81999H1.41176C0.9176 8.81999 0.670518 8.81999 0.481773 8.72382C0.315747 8.63923 0.180765 8.50424 0.0961706 8.33822C0 8.14947 0 7.90239 0 7.40823V1.76C0 1.29322 0.185428 0.845555 0.515492 0.515492C0.845555 0.185428 1.29322 1.85885e-08 1.76 1.85885e-08Z"></path>
+    <path d="M47.65 15.8799C46.4998 15.9305 45.3757 16.238 44.36 16.7799L17.36 32.6499C16.3479 33.1919 15.2269 33.4994 14.08 33.5499H1.41176C0.9176 33.5499 0.670518 33.5499 0.481773 33.646C0.315747 33.7306 0.180765 33.8656 0.0961706 34.0316C0 34.2204 0 34.4674 0 34.9616V42.7281C0 43.2222 0 43.4693 0.0961706 43.6581C0.180765 43.8241 0.315747 43.9591 0.481773 44.0437C0.670518 44.1398 0.9176 44.1398 1.41176 44.1398H12.35C13.5001 44.0892 14.6243 43.7817 15.64 43.2398L42.64 27.3699C43.652 26.8278 44.773 26.5203 45.92 26.4699H58.5882C59.0823 26.4699 59.3294 26.4699 59.5182 26.3737C59.6842 26.2891 59.8192 26.1541 59.9038 25.9881C59.9999 25.7993 59.9999 25.5523 59.9999 25.0581V17.2916C59.9999 16.7975 59.9999 16.5504 59.9038 16.3616C59.8192 16.1956 59.6842 16.0606 59.5182 15.976C59.3294 15.8799 59.0823 15.8799 58.5882 15.8799H47.65Z"></path>
+    <path d="M47.65 33.56C46.4998 33.6106 45.3757 33.9182 44.36 34.46L17.36 50.32C16.3497 50.8666 15.2277 51.1744 14.08 51.22H1.41176C0.9176 51.22 0.670518 51.22 0.481773 51.3162C0.315747 51.4008 0.180765 51.5358 0.0961706 51.7018C0 51.8905 0 52.1376 0 52.6318V58.28C0.0129646 58.739 0.203789 59.175 0.532182 59.4959C0.860576 59.8168 1.30083 59.9976 1.76 60H58.2399C58.7042 59.9974 59.1488 59.8125 59.4781 59.4852C59.8073 59.1578 59.9947 58.7142 59.9999 58.25V52.6018C59.9999 52.1076 59.9999 51.8605 59.9038 51.6718C59.8192 51.5058 59.6842 51.3708 59.5182 51.2862C59.3294 51.19 59.0823 51.19 58.5882 51.19H45.88C44.7322 51.1444 43.6102 50.8366 42.6 50.29L34.52 45.55C34.3536 45.4671 34.2136 45.3394 34.1157 45.1813C34.0179 45.0232 33.966 44.8409 33.966 44.655C33.966 44.4691 34.0179 44.2868 34.1157 44.1287C34.2136 43.9706 34.3536 43.843 34.52 43.76L38.36 41.51C38.8237 41.2706 39.3381 41.1457 39.86 41.1457C40.3819 41.1457 40.8962 41.2706 41.36 41.51L44.36 43.25C45.3739 43.7964 46.4991 44.1042 47.65 44.15H58.5882C59.0823 44.15 59.3294 44.15 59.5182 44.0538C59.6842 43.9693 59.8192 43.8343 59.9038 43.6682C59.9999 43.4795 59.9999 43.2324 59.9999 42.7383V34.9718C59.9999 34.4776 59.9999 34.2305 59.9038 34.0418C59.8192 33.8758 59.6842 33.7408 59.5182 33.6562C59.3294 33.56 59.0823 33.56 58.5882 33.56H47.65Z"></path>
+  </g>
+  <g class="logo__wordmark" fill="#000">
+    <path d="M363.73 6.09338C365.043 6.29182 366.288 6.80629 367.358 7.59253C368.357 8.37618 369.067 9.46955 369.377 10.7008C369.772 12.4038 369.772 14.1748 369.377 15.8778L368.837 19.0261L355.604 20.6951L356.344 16.2476H348.578L347.149 24.523H355.634C357.361 24.5096 359.086 24.64 360.791 24.9127C362.164 25.1068 363.472 25.6203 364.609 26.4119C365.655 27.1652 366.416 28.25 366.768 29.4901C367.152 31.2012 367.152 32.9761 366.768 34.6872L365.209 43.6821C364.924 45.5578 364.301 47.3661 363.37 49.0191C362.61 50.3318 361.552 51.4478 360.282 52.2773C359.005 53.0816 357.582 53.6251 356.094 53.8763C354.361 54.1698 352.605 54.3103 350.847 54.2961H340.633C338.905 54.3138 337.178 54.1733 335.476 53.8763C334.153 53.6701 332.909 53.1185 331.868 52.2773C330.912 51.4324 330.265 50.2929 330.029 49.0391C329.733 47.2717 329.774 45.4644 330.149 43.7121L330.689 40.4939L344.161 38.7249L343.281 43.7821H351.926L353.466 34.987H344.98C343.235 35.0073 341.491 34.8601 339.773 34.5473C338.423 34.3357 337.15 33.7817 336.075 32.9382C335.099 32.0974 334.425 30.9601 334.157 29.7C333.823 27.923 333.857 26.0964 334.256 24.3331L335.716 15.9178C335.977 14.0865 336.595 12.3243 337.535 10.7308C338.317 9.46015 339.385 8.38915 340.653 7.60253C341.938 6.84202 343.356 6.33008 344.831 6.09338C346.482 5.82458 348.154 5.6942 349.828 5.7036H358.823C360.467 5.69 362.109 5.82042 363.73 6.09338ZM104.837 6.09344C106.15 6.29188 107.395 6.80635 108.465 7.59259C109.464 8.37624 110.174 9.46961 110.484 10.7008C110.879 12.4039 110.879 14.1748 110.484 15.8779L109.944 19.0261L96.7117 20.6952L97.4513 16.2477H89.6857L88.2565 24.523H96.7417C98.4685 24.5097 100.194 24.6401 101.899 24.9128C103.271 25.1068 104.579 25.6203 105.717 26.4119C106.763 27.1653 107.523 28.2501 107.875 29.4902C108.259 31.2013 108.259 32.9762 107.875 34.6873L106.316 43.6822C106.031 45.5578 105.408 47.3661 104.477 49.0191C103.717 50.3319 102.659 51.4478 101.389 52.2773C100.112 53.0817 98.6892 53.6252 97.2014 53.8764C95.4681 54.1699 93.7123 54.3103 91.9544 54.2962H81.7401C80.0119 54.3139 78.2857 54.1734 76.5831 53.8764C75.2607 53.6701 74.0161 53.1185 72.9751 52.2773C72.0191 51.4324 71.372 50.293 71.1361 49.0391C70.8406 47.2717 70.8813 45.4645 71.2561 43.7122L71.7958 40.494L85.2682 38.725L84.3886 43.7821H93.0338L94.5729 34.9871H86.0877C84.3419 35.0074 82.5983 34.8601 80.8806 34.5473C79.5308 34.3358 78.2576 33.7818 77.1827 32.9382C76.2065 32.0975 75.5325 30.9601 75.2638 29.7001C74.9298 27.9231 74.9638 26.0965 75.3638 24.3331L76.8229 15.9179C77.0844 14.0866 77.7024 12.3243 78.6419 10.7308C79.4245 9.46021 80.492 8.38921 81.7601 7.60258C83.0458 6.84208 84.4629 6.33014 85.9378 6.09344C87.5897 5.82463 89.2613 5.69426 90.9349 5.70366H99.9299C101.574 5.69006 103.216 5.82048 104.837 6.09344ZM115.761 6.24855H150.991L148.882 18.2917H138.158L131.981 53.7517H118.209L124.386 18.2917H113.662L115.761 6.24855ZM154.928 6.24855L146.643 53.7517H160.425L168.701 6.24855H154.928ZM192.008 25.0779L205.381 6.24855H217.963L209.688 53.7517H195.876L200.223 28.9157L188.48 45.8162L182.264 29.2555L177.996 53.7517H166.083L174.358 6.24855H184.642L192.008 25.0779ZM245.415 6.24855L239.179 42.1183H231.063L237.31 6.24855H223.547L217.031 43.7373C216.652 45.4935 216.624 47.3076 216.951 49.0743C217.211 50.3401 217.891 51.4811 218.88 52.3125C219.973 53.1474 221.258 53.6939 222.618 53.9016C224.337 54.2062 226.08 54.3501 227.825 54.3313H238.109C239.927 54.3469 241.743 54.2031 243.536 53.9016C245.059 53.6605 246.52 53.1204 247.834 52.3125C249.103 51.491 250.162 50.3816 250.922 49.0743C251.839 47.4179 252.452 45.6103 252.731 43.7373L259.227 6.24855H245.415ZM264.791 6.24855H278.573L272.397 41.7085H287.189L285.09 53.7517H256.516L264.791 6.24855ZM319.011 6.24855L312.774 42.1183H304.659L310.905 6.24855H297.143L290.627 43.7373C290.247 45.4935 290.22 47.3076 290.547 49.0743C290.807 50.3402 291.486 51.4812 292.476 52.3125C293.569 53.1474 294.854 53.6939 296.214 53.9016C297.932 54.2062 299.675 54.3501 301.421 54.3313H311.705C313.523 54.3469 315.339 54.2031 317.132 53.9016C318.655 53.6605 320.116 53.1204 321.429 52.3125C322.699 51.491 323.757 50.3816 324.518 49.0743C325.435 47.4179 326.048 45.6103 326.327 43.7373L332.823 6.24855H319.011Z"></path>
+  </g>
+</svg>
+
+</a>
+
+<input type="checkbox" id="hamburger" class="nav-checkbox" />
+<label class="nav-mobile-button" for="hamburger"><span></span> Menu</label>
+
+<nav class="nav">
+
+  <label class="nav-mobile-button nav-mobile-button--close" for="hamburger"><span></span> close</label>
+
+  <ul class="nav__list ">
+    <li>
+      <a class="nav__list-link" href="/handbook/introduction">Handbook</a>
+
+      <ul class="nav__sublist "><li>
+      <a class="nav__sublist-link" href="/handbook/origin">Preface: The Origin of Stimulus
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/introduction">1: Introduction
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/hello-stimulus">2: Hello, Stimulus
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/building-something-real">3: Building Something Real
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/designing-for-resilience">4: Designing For Resilience
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/managing-state">5: Managing State
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/working-with-external-resources">6: Working With External Resources
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/handbook/installing">7: Installing Stimulus in Your Application
+      </a>
+    </li></ul>
+
+    </li>
+    <li>
+      <a class="nav__list-link active" href="/reference/controllers">Reference</a>
+
+      <ul class="nav__sublist  active"><li>
+      <a class="nav__sublist-link" href="/reference/controllers">Controllers
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/reference/lifecycle-callbacks">Lifecycle Callbacks
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/reference/actions">Actions
+      </a>
+    </li><li>
+      <a class="nav__sublist-link active" href="/reference/targets">Targets
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/reference/outlets">Outlets
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/reference/values">Values
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/reference/css-classes">CSS Classes
+      </a>
+    </li><li>
+      <a class="nav__sublist-link" href="/reference/using-typescript">Using Typescript
+      </a>
+    </li></ul>
+
+    </li>
+    <li>
+      <a class="nav__list-link" href="https://discuss.hotwired.dev" title="Have a question? Connect with other developers on the Stimulus Discourse community forum.">Community</a>
+    </li>
+    <li>
+      <a class="nav__list-link" href="https://github.com/hotwired/stimulus" title="Head over to GitHub for code, bug reports, and pull requests.">Source Code</a>
+    </li>
+  </ul>
+
+</nav>
+
+  </header>
+
+  <section id="content" class="docs__content grid__custom-item">
+
+    <h1>Targets</h1>
+<p><em>Targets</em> let you reference important elements by name.</p>
+
+
+
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-controller</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>search<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><br />  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">data-search-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>query<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><br />  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-search-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>errorMessage<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><br />  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-search-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>results<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><br /><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+<h2 id="attributes-and-names"><a class="anchor" href="#attributes-and-names">﹟</a> Attributes and Names</h2>
+<p>The <code>data-search-target</code> attribute is called a <em>target attribute</em>, and its value is a space-separated list of <em>target names</em> which you can use to refer to the element in the <code>search</code> controller.</p>
+
+
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-controller</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>s​earch<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><br />  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-<span class="callout">search</span>-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="callout">results</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><br /><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+<h2 id="definitions"><a class="anchor" href="#definitions">﹟</a> Definitions</h2>
+<p>Define target names in your controller class using the <code>static targets</code> array:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// controllers/search_controller.js</span><br /><span class="token keyword">import</span> <span class="token punctuation">{</span> Controller <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@hotwired/stimulus"</span><br /><br /><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">extends</span> Controller <span class="token punctuation">{</span><br />  <span class="token keyword">static</span> targets <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">"query"</span><span class="token punctuation">,</span> <span class="token string">"errorMessage"</span><span class="token punctuation">,</span> <span class="token string">"results"</span> <span class="token punctuation">]</span><br />  <span class="token comment">// …</span><br /><span class="token punctuation">}</span></code></pre>
+<h2 id="properties"><a class="anchor" href="#properties">﹟</a> Properties</h2>
+<p>For each target name defined in the <code>static targets</code> array, Stimulus adds the following properties to your controller, where <code>[name]</code> corresponds to the target’s name:</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singular</td>
+<td><code>this.[name]Target</code></td>
+<td>The first matching target in scope</td>
+</tr>
+<tr>
+<td>Plural</td>
+<td><code>this.[name]Targets</code></td>
+<td>An array of all matching targets in scope</td>
+</tr>
+<tr>
+<td>Existential</td>
+<td><code>this.has[Name]Target</code></td>
+<td>A boolean indicating whether there is a matching target in scope</td>
+</tr>
+</tbody>
+</table>
+<p><br /><strong>Note:</strong> Accessing the singular target property will throw an error when there is no matching element.</p>
+<h2 id="shared-targets"><a class="anchor" href="#shared-targets">﹟</a> Shared Targets</h2>
+<p>Elements can have more than one target attribute, and it’s common for targets to be shared by multiple controllers.</p>
+
+
+
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">data-controller</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>search checkbox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><br />  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name"></span><span class="callout">data-search-target="projects"</span> <span class="token attr-name"></span><span class="callout">data-checkbox-target="input"</span><span class="token punctuation">&gt;</span></span><br />  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name"></span><span class="callout">data-search-target="messages"</span> <span class="token attr-name"></span><span class="callout">data-checkbox-target="input"</span><span class="token punctuation">&gt;</span></span><br />  …<br /><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>In the example above, the checkboxes are accessible inside the <code>search</code> controller as <code>this.projectsTarget</code> and <code>this.messagesTarget</code>, respectively.</p>
+<p>Inside the <code>checkbox</code> controller, <code>this.inputTargets</code> returns an array with both checkboxes.</p>
+<h2 id="optional-targets"><a class="anchor" href="#optional-targets">﹟</a> Optional Targets</h2>
+<p>If your controller needs to work with a target which may or may not be present, condition your code based on the value of the existential target property:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>hasResultsTarget<span class="token punctuation">)</span> <span class="token punctuation">{</span><br />  <span class="token keyword">this</span><span class="token punctuation">.</span>resultsTarget<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">"…"</span><br /><span class="token punctuation">}</span></code></pre>
+<h2 id="connected-and-disconnected-callbacks"><a class="anchor" href="#connected-and-disconnected-callbacks">﹟</a> Connected and Disconnected Callbacks</h2>
+<p>Target <em>element callbacks</em> let you respond whenever a target element is added or
+removed within the controller’s element.</p>
+<p>Define a method <code>[name]TargetConnected</code> or <code>[name]TargetDisconnected</code> in the controller, where <code>[name]</code> is the name of the target you want to observe for additions or removals. The method receives the element as the first argument.</p>
+<p>Stimulus invokes each element callback any time its target elements are added or removed after <code>connect()</code> and before <code>disconnect()</code> lifecycle hooks.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">extends</span> Controller <span class="token punctuation">{</span><br />  <span class="token keyword">static</span> targets <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">"item"</span> <span class="token punctuation">]</span><br /><br />  <span class="token function">itemTargetConnected</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br />    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sortElements</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>itemTargets<span class="token punctuation">)</span><br />  <span class="token punctuation">}</span><br /><br />  <span class="token function">itemTargetDisconnected</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br />    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sortElements</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>itemTargets<span class="token punctuation">)</span><br />  <span class="token punctuation">}</span><br /><br />  <span class="token comment">// Private</span><br />  <span class="token function">sortElements</span><span class="token punctuation">(</span><span class="token parameter">itemTargets</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/* ... */</span> <span class="token punctuation">}</span><br /><span class="token punctuation">}</span></code></pre>
+<p><strong>Note</strong> During the execution of <code>[name]TargetConnected</code> and
+<code>[name]TargetDisconnected</code> callbacks, the <code>MutationObserver</code> instances behind
+the scenes are paused. This means that if a callback add or removes a target
+with a matching name, the corresponding callback <em>will not</em> be invoked again.</p>
+<h2 id="naming-conventions"><a class="anchor" href="#naming-conventions">﹟</a> Naming Conventions</h2>
+<p>Always use camelCase to specify target names, since they map directly to properties on your controller:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">data-search-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>camelCase<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <br /><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">data-search-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>do-not-do-this<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">extends</span> Controller <span class="token punctuation">{</span><br />  <span class="token keyword">static</span> targets <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">"camelCase"</span> <span class="token punctuation">]</span>  <br /><span class="token punctuation">}</span></code></pre>
+<p><a class="button" href="/reference/outlets">Next: Outlets</a></p></section>
+
+  <footer class="docs__footer grid__item grid__item--start-4 grid__item--span-8">
+
+    <footer class="footer">
+  <p class="footer__headline">Brought to you by the makers of:</p>
+  <ul class="footer__links">
+    <li><a href="https://basecamp.com" target="_blank" rel="noopener"><img width="253" height="56" src="/assets/logo-basecamp.svg" alt="Basecamp" /></a></li>
+    <li><span>and</span></li>
+    <li><a href="https://hey.com" target="_blank" rel="noopener"><img width="122" height="56" src="/assets/logo-hey.svg" alt="HEY" /></a></li>
+  </ul>
+  <p class="footer__copyright">© 2023 <a href="https://37signals.com" target="_blank" rel="noopener">37signals</a></p>
+</footer>
+
+
+  </footer>
+
+</main>
+
+
+  
+
+
+</body></html>

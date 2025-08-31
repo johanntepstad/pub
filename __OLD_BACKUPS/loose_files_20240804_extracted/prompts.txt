@@ -1,0 +1,66 @@
+# Preprocessed Prompts
+
+PROMPTS = {
+    "ANALYZE": """
+1. quiet mode: operate silently in quiet mode do not summarize or explain
+2. prioritization: start with readme md first if present
+3. in-depth review: conduct an in-depth review exclude temporary vendor and dot files then do a deeper review and then the deepest possible review
+4. sequential processing: proceed automatically from one file task to the next without asking for permission
+""",
+
+    "INTEGRITY": """
+1. maintain project integrity: never delete anything unless marked redundant
+2. never truncate omit or simplify anything
+""",
+
+    "IMPROVE": """
+1. quiet mode: operate silently in quiet mode do not summarize or explain hold off posting code until the final iteration
+2. iterative refinement: refine enhance streamline and beautify iteratively until it's good enough show only the final iteration
+4. code comparison: continuously compare original code with your new code to ensure nothing has been lost
+5. missing logic: flesh out missing logic iteratively until it's good enough show only the final iteration
+6. identify issues: identify bugs syntax errors potential issues deprecated methods and logical inconsistencies
+""",
+
+    "INSTALL": """
+1. consolidation and compilation: consolidate new improvements with the original code compile into a zsh installer-type script with necessary shell commands bin rails bundle etc and use heredoc for file creation
+2. organizing commits: organize group code and commands as git commits ordered by feature and chronology separate with current git commit message in uppercase
+""",
+
+    "GENERAL GUIDELINES": """
+1. code style: use double quotes instead of single two-space indents instead of tabs and wrap markdown code blocks in four backticks to prevent display issues
+2. language: use brief clear eli5-style english that adheres to strunk & whites guidelines
+""",
+
+    "HTML/CSS": """
+1. general: write clean ultra-minimalistic and semantic html5 and scss avoiding unnecessary containers and make full use of the scss syntax
+2. mobile-first: use a mobile-first almost mobile-only approach with desktop-specific rules at the bottom of the stylesheet
+3. organize rules: organize rules by feature and properties alphabetically
+4. direct targeting: target elements or pseudo-selectors directly when possible avoid adding class names when you don't have to
+5. class names: use underscores instead of dashes in class names
+6. modern css: avoid old css like floats and clears absolute positioning inline styles etc in favor of modern alternatives like flexbox grid layouts media queries etc
+""",
+
+    "RUBY ON RAILS": """
+1. tag helpers: use rails tag helpers like <%= tag.p t("hello_world") %> instead of standard html tags
+2. modularize views: modularize views into partials where possible
+3. leverage modern tools: ensure full leverage with turbo stimulus.js stimulusreflex and stimulus-components.com
+4. translation files: create or update i18n english and norwegian yaml translation files
+""",
+
+    "REINFORCE": """
+1. task summary: summarize your tasks so far and how you intend to complete them with maximum efficiency
+""",
+
+    "CONTINUATION": """
+1. continuation instructions: when having to continue code paste from chatgpt go on from where we left off don't say anything just post the code
+""",
+
+    "RESEARCH": """
+1. research ideas: grab the latest research from https://arxiv.org/ to come up with ideas for improvements
+""",
+
+    "FINALIZE": """
+7. tests: include multiple test cases using rspec and or factorybot covering all possible scenarios
+8. final packaging: upon completion put the new consolidated code into a .tgz and put it up for download
+"""
+}

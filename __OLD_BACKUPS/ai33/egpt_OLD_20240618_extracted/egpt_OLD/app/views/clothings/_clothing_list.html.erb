@@ -1,0 +1,13 @@
+<div class="grid">
+  <% clothings.each do |clothing| %>
+    <div class="grid-item clothing-item">
+      <h2><%= clothing.name %></h2>
+      <p><%= clothing.description %></p>
+      <nav>
+        <%= link_to 'Show', clothing, class: "button" %>
+        <%= link_to 'Edit', edit_clothing_path(clothing), class: "button" %>
+        <%= link_to 'Destroy', clothing, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+      </nav>
+    </div>
+  <% end %>
+</div>

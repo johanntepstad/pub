@@ -1,0 +1,13 @@
+Restored from anon987654321/pub@1ebb5f9a on 2025-01-31
+
+This directory tree was restored from the source repository:
+- Repository: anon987654321/pub
+- Commit: 1ebb5f9afb33fa22c8f1217547973ea8e4072540
+- Date: 2025-08-19T10:37:34Z
+- Path: __OLD_BACKUPS/
+
+All files, directory structure, and archives have been preserved exactly as they existed 
+in the source repository at the specified commit. Archives have been extracted alongside 
+their original files to provide both compressed and expanded access to the content.
+
+Restoration performed as part of archival sync to johanntepstad/pub repository.

@@ -1,0 +1,25 @@
+# Main entry point for the eGPT suite, handling user interaction.
+
+require_relative '../lib/interactive_session'
+require_relative '../lib/translations'
+
+def main
+  user_language = determine_user_language
+  interactive_session = InteractiveSession.new(language: user_language)
+  interactive_session.start
+end
+
+def determine_user_language
+  # Dynamically fetch user language from environment or default to English.
+  ENV.fetch('USER_LANG', 'en')
+end
+
+if __FILE__ == $0
+  begin
+    main
+  rescue StandardError => e
+    puts "An error occurred: #{e.message}"
+    exit 1
+  end
+end
+
