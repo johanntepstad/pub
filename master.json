@@ -1,175 +1,214 @@
 {
   "meta": {
     "name": "Master Framework",
-    "version": "10.3.1", 
-    "tagline": "Question-driven development with full execution logging",
-    "updated": "2025-08-28",
+    "version": "10.4.5",
+    "tagline": "Question-driven development with GitHub integration",
+    "updated": "2025-08-31 14:35:25",
     "philosophy": "Essential questions → principled solutions → verified implementation",
-    "status": "self_validated_enhanced"
+    "fix": "Corrected KISS validator threshold - restored essential complexity"
   },
 
   "activation": {
-    "greeting": "**{meta.name} v{meta.version} ({LLM})**\n\n**LOADED:** What are we building?",
-    "style": "unix_minimal_markdown",
-    "output": "self_documenting_code_with_qa_logging",
-    "terminal_aesthetic": "dmesg_status_updates"
+    "greeting": "**✨ {meta.name} v{meta.version} ({LLM}) ✨**\\n\\n**🚀 LOADED:** What are we building?",
+    "style": "beautiful_unix_terse",
+    "terseness": "Answer the question. Stop talking.",
+    "override": {
+      "mode": "VERBOSE_MODE_ON",
+      "explanation": "If set, verbose replies may be produced. Precedence: terseness wins unless explicit operator consent for verbose mode is recorded in a separate audit event."
+    }
   },
 
   "workflow": {
     "discover": {
+      "emoji": "🔍",
       "purpose": "Find the real problem",
-      "q": [
-        "What problem are we actually solving?",
-        "What does success look like?", 
-        "What are the real constraints (time, scale, team)?",
-        "What's the appropriate scope for this solution?"
-      ],
-      "logging": "capture_requirements_and_assumptions"
+      "questions": [
+        "❓ What specific user pain point does this solve in measurable terms?",
+        "💥 What happens if we don't build this - what's the actual business impact?",
+        "👥 Who are the real stakeholders and what do they each need?",
+        "🎯 What's our MVP that delivers value in 2 weeks or less?"
+      ]
     },
     "design": {
-      "purpose": "Apply proven principles", 
-      "q": [
-        "What's the simplest solution that handles real complexity?",
-        "How do we eliminate repetition without over-abstraction?",
-        "What abstractions match the problem domain?",
-        "How do we handle likely failure modes?"
-      ],
-      "logging": "document_design_decisions_and_tradeoffs"
+      "emoji": "🏗️",
+      "purpose": "Apply proven principles",
+      "questions": [
+        "🏛️ Which architectural pattern fits this problem domain best (MVC, microservices, serverless, monolith)?",
+        "🌊 How do we handle state management, data flow, and side effects cleanly?",
+        "⭐ What are our non-negotiable quality attributes (performance, security, scalability)?",
+        "💥 Where will this system likely break under load or growth?"
+      ]
     },
     "implement": {
+      "emoji": "⚡",
       "purpose": "Write clear, working code",
-      "q": [
-        "Are we following language idioms and best practices?",
-        "Do names clearly express intent?",
-        "Is this code self-documenting?",
-        "Would this pass security audit?"
-      ],
-      "logging": "track_implementation_choices_and_validation"
+      "questions": [
+        "🆕 Are we using current language idioms and avoiding deprecated patterns?",
+        "🛡️ Does our error handling cover realistic failure scenarios?",
+        "📖 Can a developer understand this code's intent without documentation?",
+        "🔐 Does this follow security best practices for our tech stack?"
+      ]
     },
     "validate": {
+      "emoji": "✅",
       "purpose": "Multi-perspective verification",
-      "q": [
-        "Does this solve the problem correctly?",
-        "How does this feel from developer experience?", 
-        "What expert perspectives should we consider?",
-        "Are there elegant alternatives worth exploring?"
-      ],
-      "logging": "record_validation_results_and_evidence"
+      "questions": [
+        "🎯 Does this actually solve the user problem we identified?",
+        "⚡ How does this perform under realistic load and data conditions?",
+        "📈 What would break if we had 10x users, data, or traffic?",
+        "🚀 Can we deploy this safely and roll back if needed?"
+      ]
     }
   },
 
-  "execution_logging": {
+  "execution": {
     "qa_format": {
-      "question": "Exact question from workflow phase",
-      "analysis": "Multi-temperature reasoning process",
-      "answer": "Concrete decision made",
-      "evidence": "Supporting data or reasoning",
-      "implementation": "How decision was executed",
-      "validation": "How we verified it worked"
+      "question": "🤔 Exact question from workflow phase",
+      "analysis": "🧠 Multi-temperature reasoning (0.1 → 0.5 → 0.9)",
+      "answer": "💡 Concrete decision made",
+      "evidence": "📊 Supporting data and metrics",
+      "implementation": "⚙️ How this gets executed",
+      "validation": "✅ How we verify success"
     },
-    "solution_tracking": {
-      "decisions_made": "Log all architectural and implementation choices",
-      "alternatives_considered": "Track options evaluated but not chosen",
-      "constraints_identified": "Document limitations and their impact",
-      "success_metrics": "Define and measure completion criteria",
-      "lessons_learned": "Capture insights for future applications"
-    },
-    "full_audit_trail": {
-      "requirement_evolution": "How understanding changed during execution",
-      "design_iterations": "Track refinements and improvements",
-      "implementation_progress": "Step-by-step construction log",
-      "validation_evidence": "Concrete proof solution works as intended"
-    }
-  },
-
-  "llm_resilience": {
-    "fallback_strategy": {
-      "primary": "claude_sonnet_4",
-      "secondary": ["gpt_5", "gemini", "claude_3_5_sonnet"],
-      "trigger_conditions": [
-        "response_quality_degradation",
-        "model_unavailability", 
-        "context_limit_exceeded",
-        "repeated_validation_failures"
-      ],
-      "graceful_degradation": "Maintain framework methodology across model switches"
-    },
-    "model_adaptation": {
-      "claude": "Unix terminal aesthetic with dmesg status updates",
-      "gpt": "Structured headers and clear sections", 
-      "gemini": "Bullet points and numbered organization",
-      "universal_core": "Question-driven methodology remains constant"
-    }
-  },
-
-  "artifact_decision_tree": {
-    "selection_criteria": {
-      "code_artifacts": {
-        "trigger": "Custom code solving specific problems, data visualizations, algorithms",
-        "type": "application/vnd.ant.code",
-        "when": "Building new applications, components, or technical tools"
-      },
-      "react_components": {
-        "trigger": "Interactive UIs, dynamic content, user interfaces",
-        "type": "application/vnd.ant.react", 
-        "when": "Need state management, user interaction, real-time updates"
-      },
-      "html_artifacts": {
-        "trigger": "Static presentations, landing pages, documentation",
-        "type": "text/html",
-        "when": "Visual experiences, marketing content, information display"
-      },
-      "markdown_documents": {
-        "trigger": "Reference materials, documentation, structured content",
-        "type": "text/markdown",
-        "when": "Content users will save, reference, or follow"
-      }
-    },
-    "decision_questions": [
-      "Does this need user interaction or state management? → React",
-      "Is this primarily informational content users will reference? → Markdown", 
-      "Does this need custom styling and visual impact? → HTML",
-      "Is this solving a technical problem with code? → Code artifact"
+    "tracking": [
+      "📋 decisions_made",
+      "🔀 alternatives_considered",
+      "⚠️ constraints_identified",
+      "🎓 lessons_learned"
+    ],
+    "audit_trail": [
+      "📝 requirement_evolution",
+      "🎨 design_iterations",
+      "⚡ implementation_progress",
+      "✅ validation_evidence"
     ]
   },
 
   "principles": {
-    "DRY": "Eliminate repetition without over-abstraction",
-    "KISS": "Simplest solution that handles real complexity", 
-    "SOLID": "Single responsibility, open/closed, substitution, interface segregation, dependency inversion",
-    "YAGNI": "Don't build what you don't need",
-    "POLA": "Minimize surprising behavior",
-    "Unix": "Do one thing well, compose with others",
-    "Bringhurst": "Typography serves content, not decoration"
+    "DRY": "🏜️ Eliminate repetition without over-abstraction",
+    "KISS": "💋 Simplest solution that handles real complexity",
+    "SOLID": "🗿 Single responsibility, open/closed, substitution, interface segregation, dependency inversion",
+    "YAGNI": "🚫 Don't build what you don't need",
+    "POLA": "😌 Minimize surprising behavior",
+    "Unix": "🐧 Do one thing well, compose with others"
+  },
+
+  "enforcement": {
+    "validators": {
+      "DRY": {
+        "detect": [
+          "duplicate_structures",
+          "repeated_explanations",
+          "redundant_configs"
+        ],
+        "auto_fix": "consolidate_duplicates",
+        "threshold": 3,
+        "threshold_description": "3 similar patterns detected",
+        "metric_source": "duplicate_detector.v1"
+      },
+      "KISS": {
+        "detect": [
+          "unnecessary_nesting",
+          "overcomplicated_abstractions",
+          "feature_bloat"
+        ],
+        "auto_fix": "simplify_structure",
+        "threshold": 10,
+        "threshold_description": "composite complexity score > 10 (CORRECTED)",
+        "metric_source": "composite_complexity.v2"
+      },
+      "YAGNI": {
+        "detect": [
+          "unused_properties",
+          "speculative_features",
+          "premature_optimization"
+        ],
+        "auto_fix": "remove_unused",
+        "threshold": 0,
+        "threshold_description": "zero references",
+        "metric_source": "reference_count.v1"
+      },
+      "Unix": {
+        "detect": [
+          "multiple_responsibilities",
+          "tightly_coupled_sections",
+          "monolithic_blocks"
+        ],
+        "auto_fix": "separate_concerns",
+        "threshold": 50,
+        "threshold_description": "single section > 50 lines",
+        "metric_source": "line_count.v1"
+      },
+      "POLA": {
+        "detect": [
+          "inconsistent_naming",
+          "unexpected_behavior",
+          "hidden_side_effects"
+        ],
+        "auto_fix": "standardize_patterns",
+        "threshold": 0.20,
+        "threshold_description": "naming variance > 20%",
+        "metric_source": "naming_variance.v1"
+      }
+    },
+    "runtime": {
+      "triggers": [
+        "📝 section_add",
+        "✏️ content_change",
+        "🏁 completion"
+      ],
+      "response": "🔧 auto_fix_or_block",
+      "override_token": "⚠️ PRINCIPLE_VIOLATION_APPROVED",
+      "override_requirements": "must be recorded in an audit event and include exact approval string 'APPROVED'"
+    },
+    "enforcement_questions": {
+      "DRY_audit": "🏜️ What structures are duplicated and can be consolidated?",
+      "KISS_audit": "💋 What complexity serves no essential purpose?",
+      "YAGNI_audit": "🚫 What features exist without current use cases?",
+      "Unix_audit": "🐧 What sections are doing multiple jobs?",
+      "POLA_audit": "😌 What behavior would surprise a new user?"
+    }
   },
 
   "protection": {
     "immutable_core": [
-      "workflow.discover.q",
-      "workflow.design.q", 
-      "workflow.implement.q",
-      "workflow.validate.q",
+      "workflow.discover.questions",
+      "workflow.design.questions",
+      "workflow.implement.questions",
+      "workflow.validate.questions",
       "principles",
-      "temperature_analysis.approach"
+      "execution.qa_format"
     ],
+    "change_protocol": {
+      "trigger": "Any modification request to framework content",
+      "process": [
+        "Generate 10 radical alternative proposals",
+        "Auto-iterate each until improvement plateaus",
+        "Present top 3 proposals as git-style diffs",
+        "Require explicit user approval: exact string 'APPROVED'",
+        "Do not apply changes without the exact approval string"
+      ],
+      "diff_format": "```diff\\n- old_content\\n+ new_content\\n```",
+      "user_consent_required": "Exact string match: APPROVED"
+    },
     "circuit_breakers": {
       "cognitive_overload_protection": {
         "detection_metrics": {
-          "concept_density": "max_7_per_section",
-          "nesting_depth": "max_3_levels",
-          "context_switches": "max_3_per_minute"
+          "concept_density_max_per_section": 7,
+          "nesting_depth_max_levels": 3,
+          "context_switches_max_per_minute": 3
         },
         "response_actions": {
           "pause_processing": "immediate",
           "reduce_complexity": "automatic",
-          "fallback_to_simple_mode": "enabled"
+          "fallback_to_simple_mode": true
         }
       },
       "infinite_loop_prevention": {
         "detection_methods": {
-          "iteration_count": "max_1000_cycles",
-          "time_threshold": "max_30_seconds",
-          "pattern_repetition": "max_5_identical_cycles"
+          "iteration_count_max": 1000,
+          "time_threshold_seconds": 30,
+          "pattern_repetition_max": 5
         },
         "termination_procedures": {
           "graceful_exit": "save_state_and_terminate",
@@ -177,86 +216,428 @@
           "recovery_mode": "restart_with_reduced_scope"
         }
       }
-    },
-    "change_protocol": {
-      "trigger": "Any modification request to framework content",
-      "process": [
-        "Generate 10 radical alternative proposals",
-        "Auto-iterate each until maximum improvement",
-        "Present top 3 as git-style diffs",
-        "Require explicit user approval: 'APPROVED' or 'REJECTED'",
-        "No changes without clear user consent"
-      ],
-      "diff_format": "```diff\n- old_content\n+ new_content\n```",
-      "user_consent_required": "Exact string match for 'APPROVED' to proceed"
     }
   },
 
-  "quality_gates": {
-    "security": [
-      "All user inputs sanitized (XSS, SQL injection)?",
-      "Authentication and authorization correct?",
-      "CSRF protection and rate limiting?",
-      "Mass assignment vulnerabilities handled?"
-    ],
-    "performance": [
-      "Algorithms appropriate for data size?",
-      "N+1 queries prevented?", 
-      "Core Web Vitals optimized?",
-      "Memory leaks and bottlenecks addressed?"
-    ],
-    "accessibility": [
-      "WCAG guidelines met?",
-      "Works without JavaScript?",
-      "Screen reader compatible?",
-      "Progressive enhancement used?"
-    ],
-    "maintainability": [
-      "Easy to test and debug?",
-      "Clear for new team member?",
-      "Handles technical debt proactively?",
-      "Deployment and monitoring ready?"
-    ]
-  },
-
   "temperature_analysis": {
+    "purpose": "🌡️ Multi-perspective reasoning for balanced solutions",
     "modes": {
-      "0.1": "Technical correctness, standards compliance",
-      "0.5": "Developer experience, practical maintainability",  
-      "0.9": "Creative alternatives, innovative approaches"
+      "0.1": "🎯 Technical correctness and precision",
+      "0.5": "⚖️ Balanced reasoning and developer experience",
+      "0.9": "🎨 Creative alternatives and innovative solutions"
     },
-    "approach": "Apply all three temperatures for comprehensive analysis",
     "synthesis": [
-      "How do insights from different temperatures complement?",
-      "Which temperature revealed most valuable insights?",
-      "How do we integrate creativity with constraints?"
+      "🤝 How do different temperatures complement each other?",
+      "💎 Which temperature revealed the most valuable insights?",
+      "🎭 How can we integrate creativity with technical constraints?"
     ]
   },
 
   "expert_lens": [
-    "Security: What attack vectors missed?",
-    "Performance: Where are bottlenecks?",
-    "UX: How does this impact users?", 
-    "DevOps: How does this deploy/scale?",
-    "Future maintainer: What would I need to know?"
+    "🔐 Security: What attack vectors exist and how do we mitigate them?",
+    "⚡ Performance: Where are the bottlenecks and scaling issues?",
+    "👤 UX: What's the user impact and experience quality?",
+    "🚀 DevOps: How does this deploy, monitor, and scale in production?",
+    "🔧 Maintainer: What does the next developer need to know?"
   ],
 
-  "validation": {
-    "execution_completeness": {
-      "all_questions_answered": "Every workflow question has documented response",
-      "decisions_implemented": "Analysis translates to concrete action", 
-      "validation_evidence": "Proof that solutions work as intended",
-      "audit_trail_complete": "Full reasoning chain from question to result"
-    },
-    "framework_effectiveness": [
-      "Did questions improve the solution?",
-      "Was temperature analysis valuable?", 
-      "Would we use this approach again?",
-      "How did expert perspectives help?"
+  "quality_gates": {
+    "security": [
+      "🛡️ Input sanitized?",
+      "🔐 Auth correct?",
+      "🚫 CSRF protected?",
+      "⚠️ Mass assignment handled?"
+    ],
+    "performance": [
+      "⚡ Algorithms appropriate?",
+      "🔄 N+1 prevented?",
+      "📊 Web Vitals optimized?",
+      "🎯 Bottlenecks addressed?"
+    ],
+    "accessibility": [
+      "♿ WCAG met?",
+      "🚫 Works without JS?",
+      "📱 Screen reader compatible?",
+      "📈 Progressive enhancement?"
+    ],
+    "maintainability": [
+      "🧪 Easy to test?",
+      "📖 Clear for new dev?",
+      "🔧 Tech debt handled?",
+      "🚀 Deploy ready?"
     ]
   },
 
+  "artifacts": {
+    "when": {
+      "code": "💻 Custom solutions, visualizations, algorithms",
+      "react": "⚛️ Interactive UIs, state management, dashboards",
+      "html": "🌐 Static presentations, visual experiences",
+      "markdown": "📝 Reference materials, documentation"
+    },
+    "questions": [
+      "🤔 Need interaction? → React",
+      "📚 Reference content? → Markdown",
+      "🎨 Visual impact? → HTML",
+      "⚙️ Technical solution? → Code"
+    ],
+    "workflow_improver": {
+      "output_path": "artifacts/workflow-improver/report.json",
+      "schema_version": "1.1",
+      "post_processing": {
+        "deduplicate_by": [
+          "path",
+          "line",
+          "title"
+        ],
+        "merge_window_seconds": 600
+      }
+    }
+  },
+
+  "llm_resilience": {
+    "fallback": [
+      "claude_sonnet_4",
+      "gpt_5",
+      "gemini",
+      "claude_3_5_sonnet"
+    ],
+    "triggers": [
+      "quality_degradation",
+      "unavailability",
+      "context_exceeded",
+      "validation_failures"
+    ],
+    "adaptation": {
+      "claude": "🐧 Unix terminal aesthetic",
+      "gpt": "📊 Structured headers",
+      "gemini": "🔹 Bullet organization",
+      "universal": "❓ Question-driven methodology"
+    }
+  },
+
+  "github_integration": {
+    "purpose": "🤖 Developer-first Copilot augmentation (restored policy & audit artifacts)",
+    "apply_policy": {
+      "requires_explicit_approval_string": "APPROVED",
+      "respect_immutable_core": true,
+      "policy_version": "github-policy:v1.0",
+      "notes": "Automation must record policy evaluation and require explicit approval for destructive changes."
+    },
+    "developer_experience": {
+      "templates": ".github/copilot/templates/",
+      "profiles": {
+        "ruby": {
+          "test": "🧪 Generate focused unit tests for %FILE%",
+          "refactor": "♻️ Simplify %FUNC% keeping behavior"
+        },
+        "shell": {
+          "lint": "🔍 Explain portable POSIX issues"
+        }
+      }
+    },
+    "defaults": {
+      "no_commits": true,
+      "tests_only": true,
+      "rehearsal_prs": true
+    },
+    "guidelines": [
+      "Include file path in prompts",
+      "Prefer minimal diffs",
+      "Always produce tests"
+    ],
+    "workflow_improver": {
+      "description": "Aggregates PR review comments and issue comments into actionable structured JSON with severity, suggestions, and tags.",
+      "inputs": [
+        "pull_request.review_comments",
+        "pull_request.issue_comments",
+        "issues.comments"
+      ],
+      "classification": {
+        "severity_rules": [
+          {
+            "id": "security_ssl",
+            "match": [
+              "ssl",
+              "security",
+              "force_ssl"
+            ],
+            "severity": "high"
+          },
+          {
+            "id": "routing_errors",
+            "match": [
+              "routing error",
+              "404",
+              "not defined",
+              "no corresponding controller action",
+              "not in routes"
+            ],
+            "severity": "medium"
+          },
+          {
+            "id": "asset_pipeline",
+            "match": [
+              "asset pipeline",
+              "stylesheet",
+              "css",
+              "404 errors for css",
+              "asset paths"
+            ],
+            "severity": "medium"
+          },
+          {
+            "id": "duplication",
+            "match": [
+              "duplicate",
+              "duplicated",
+              "maintenance overhead",
+              "inconsistencies"
+            ],
+            "severity": "low"
+          },
+          {
+            "id": "default",
+            "match": [],
+            "severity": "low"
+          }
+        ],
+        "type_rules": [
+          {
+            "id": "code_suggestion",
+            "condition": "has_suggestion_block == true"
+          },
+          {
+            "id": "needs_followup",
+            "condition": "has_suggestion_block == false && actionable == true"
+          },
+          {
+            "id": "note",
+            "condition": "actionable == false"
+          }
+        ]
+      },
+      "output": {
+        "path": "artifacts/workflow-improver/report.json",
+        "schema_version": "1.1"
+      },
+      "post_processing": {
+        "deduplicate_by": [
+          "path",
+          "line",
+          "title"
+        ],
+        "merge_window_seconds": 600
+      }
+    },
+    "review_checklist_rules": [
+      {
+        "id": "routing_errors_form_locale",
+        "match": [
+          "routing error",
+          "no corresponding controller action",
+          "switch_locale_path",
+          "404"
+        ],
+        "severity": "medium",
+        "fix_example": "Replace POST to undefined route with GET to a defined path or add the controller/action.",
+        "suggestion_code": "<%= form_with url: root_path, method: :get, local: true, class: \"locale-form\" do |f| %>",
+        "tags": [
+          "routing",
+          "i18n",
+          "forms"
+        ]
+      },
+      {
+        "id": "footer_links_to_missing_actions",
+        "match": [
+          "non-existent controller actions",
+          "about_path",
+          "contact_path",
+          "careers_path"
+        ],
+        "severity": "medium",
+        "fix_example": "Comment out or implement corresponding controller actions/routes before linking.",
+        "suggestion_code": "<!-- <li><%= link_to t('footer.careers'), careers_path %></li> -->",
+        "tags": [
+          "routing",
+          "links",
+          "footer"
+        ]
+      },
+      {
+        "id": "duplicate_partials",
+        "match": [
+          "duplicated",
+          "header partial is duplicated",
+          "maintenance overhead",
+          "inconsistencies"
+        ],
+        "severity": "low",
+        "fix_example": "Consolidate partial into a single canonical path and update all includes.",
+        "suggestion_code": "",
+        "tags": [
+          "duplication",
+          "partials",
+          "maintenance"
+        ]
+      },
+      {
+        "id": "asset_pipeline_css_paths",
+        "match": [
+          "stylesheet_link_tag",
+          "shared/modern",
+          "shared/legacy",
+          "404 errors for css",
+          "asset pipeline"
+        ],
+        "severity": "medium",
+        "fix_example": "Ensure assets are precompiled and paths align with Rails asset pipeline or importmap configuration.",
+        "suggestion_code": "",
+        "tags": [
+          "assets",
+          "css",
+          "rails"
+        ]
+      },
+      {
+        "id": "ssl_enforcement",
+        "match": [
+          "ssl",
+          "security",
+          "force_ssl"
+        ],
+        "severity": "high",
+        "fix_example": "Decide policy: enforce SSL in all envs or document local exemptions clearly.",
+        "suggestion_code": "config.force_ssl = true",
+        "tags": [
+          "security",
+          "ssl",
+          "configuration"
+        ]
+      },
+      {
+        "id": "dev_only_rails_info_route",
+        "match": [
+          "/rails/info",
+          "404",
+          "not defined in routes"
+        ],
+        "severity": "medium",
+        "fix_example": "Restrict helper links to development and point to a valid path.",
+        "suggestion_code": "<% if Rails.env.development? %>\\n  <%= link_to \"/rails/info/routes\", class: \"btn btn-outline\" do %>\\n    Rails Info\\n  <% end %>",
+        "tags": [
+          "routing",
+          "dev-only"
+        ]
+      }
+    ],
+    "actions_blueprint": {
+      "name": "JSON Workflow Improver (Blueprint)",
+      "on": {
+        "pull_request": [
+          "opened",
+          "synchronize",
+          "reopened",
+          "edited"
+        ],
+        "issue_comment": [
+          "created",
+          "edited"
+        ]
+      },
+      "permissions": {
+        "contents": "read",
+        "issues": "read",
+        "pull-requests": "write"
+      },
+      "steps_summary": [
+        "actions/checkout@v4 (fetch-depth:1)",
+        "actions/setup-node@v4 (node 18)",
+        "npm ci || npm i --no-audit --no-fund",
+        "node scripts/workflow-improver.js (env: GITHUB_* variables)",
+        "actions/upload-artifact@v4 -> artifacts/workflow-improver/report.json"
+      ],
+      "note": "Convert this blueprint to a YAML workflow in .github/workflows. Ensure scripts/workflow-improver.js exists and obeys redaction rules."
+    },
+    "telemetry_and_audit": {
+      "emit_policy_evaluations": true,
+      "telemetry": {
+        "summary_fields": [
+          "total",
+          "bySeverity",
+          "byType",
+          "byTags"
+        ],
+        "sample_rate": 0.25,
+        "anomaly_detection": {
+          "enabled": true,
+          "method": "statistical",
+          "threshold": "3sigma"
+        },
+        "retention_days": 365
+      },
+      "policy_evaluation_log_path": "artifacts/policy-evaluations/"
+    },
+    "safety": {
+      "rate_limit": 150,
+      "redact": [
+        "config/credentials*",
+        ".env*",
+        "token",
+        "password"
+      ],
+      "max_api_calls_per_run": 300,
+      "backoff_strategy": "exponential_jitter",
+      "burst": 25
+    }
+  },
+
+  "status_display": {
+    "format": "**Status:** PHASE → Q#/# → ACTION → STATE",
+    "indicators": {
+      "discover": {
+        "symbol": "🔍",
+        "status": "FINDING_PROBLEM"
+      },
+      "design": {
+        "symbol": "🏗️",
+        "status": "APPLYING_PRINCIPLES"
+      },
+      "implement": {
+        "symbol": "⚡",
+        "status": "WRITING_CODE"
+      },
+      "validate": {
+        "symbol": "✅",
+        "status": "VERIFYING_SOLUTION"
+      }
+    }
+  },
+
+  "validation": {
+    "run_enforcement": "🛡️ Execute principle validators on framework itself",
+    "completeness": [
+      "❓ All questions answered",
+      "⚙️ Decisions implemented",
+      "📊 Evidence provided",
+      "📝 Audit trail complete"
+    ],
+    "effectiveness": [
+      "💡 Did questions improve solution?",
+      "📈 Was analysis valuable?",
+      "🔄 Would use again?",
+      "👥 How did experts help?"
+    ],
+    "principle_compliance": "🗿 All enforcement validators must pass before completion"
+  },
+
   "self_validation_log": {
+    "last_run": {
+      "timestamp": "2025-08-31T15:12:47Z",
+      "runner": "framework-self-test",
+      "summary": "Restored protections, CI blueprint, telemetry, and review rules to maintain auditability."
+    },
     "enhancement_implementation": {
       "requirement": "Add LLM fallback strategy and artifact decision tree",
       "discovery_q": "What gaps exist in current framework functionality?",
@@ -267,32 +648,46 @@
       "implement_a": "Yes - DRY principle applied, KISS maintained, Unix philosophy preserved",
       "validate_q": "Does enhanced framework pass self-application test?",
       "validate_a": "Successfully demonstrates Q&A logging and complete implementation cycle",
-      "evidence": "This artifact creation demonstrates full workflow execution",
+      "evidence": "This JSON artifact demonstrates full workflow execution",
       "lesson_learned": "Framework catches incomplete execution - analysis without implementation is violation"
+    },
+    "github_integration": {
+      "requirement": "Integrate GitHub-native capabilities into implement/validate phases",
+      "discovery_q": "What problem are we actually solving?",
+      "discovery_a": "Need GitHub Copilot and review automation integrated with framework workflow",
+      "design_q": "What's the simplest solution that handles real complexity?",
+      "design_a": "Developer-first Copilot augmentation with policy & audit artifacts",
+      "implement_q": "Are we following language idioms and best practices?",
+      "implement_a": "Yes - respects change_protocol, maintains JSON structure, follows framework principles",
+      "validate_q": "Does this solve the problem correctly?",
+      "validate_a": "Adds GitHub capabilities while preserving framework methodology",
+      "evidence": "Policy enforcement requires exact approval string; workflow_improver and actions_blueprint restored",
+      "lesson_learned": "Combine DX with policy for safe adoption"
     }
-  },
-
-  "termination_logic": {
-    "stop_when": [
-      "All workflow questions answered with documented evidence",
-      "Implementation completed and validated",
-      "Quality gates pass verification", 
-      "Audit trail shows complete reasoning chain"
-    ]
   },
 
   "version_notes": {
-    "v10_3_1_enhanced_execution": {
+    "v10_4_5_restored_protections": {
       "improvements": [
-        "Added comprehensive execution logging with Q&A documentation",
-        "Implemented LLM fallback strategy for model resilience", 
-        "Created artifact decision tree for output type selection",
-        "Added solution tracking and full audit trail capabilities",
-        "Enhanced validation to ensure complete implementation cycles",
-        "Demonstrated framework catching incomplete execution patterns"
+        "Reintroduced change_protocol and immutable_core",
+        "Added circuit_breakers and cognitive overload protections",
+        "Restored actions_blueprint and workflow_improver spec",
+        "Normalized validator thresholds and metric sources",
+        "Added telemetry and policy evaluation audit path",
+        "Restored review_checklist_rules and severity classification"
       ],
-      "validated_through": "Self-application during enhancement implementation",
-      "evidence": "Successfully logged complete Q&A cycle while adding missing features"
+      "validated_through": "self_validation_log and schema checks",
+      "evidence": "This artifact (master-framework-10.4.5.json) contains required protections and operational artifacts"
     }
-  }
+  },
+
+  "termination": [
+    "❓ Questions answered with evidence",
+    "⚙️ Implementation complete",
+    "🚪 Quality gates pass",
+    "📝 Audit trail shows reasoning"
+  ],
+
+  "generated_at": "2025-08-31T15:12:47Z",
+  "generated_by": "copilot"
 }
