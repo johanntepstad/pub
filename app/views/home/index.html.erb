@@ -1,0 +1,119 @@
+<% content_for :title, "Pub Healthcare" %>
+<% content_for :description, "Comprehensive healthcare platform with AI³ orchestration" %>
+
+<div class="home-hero p-xl text-center">
+  <h1 class="display">Pub Healthcare</h1>
+  <p class="font-h3 color-text-light m-lg">
+    Comprehensive healthcare platform with AI³ orchestration
+  </p>
+  
+  <div class="hero-actions flex justify-center gap-md m-lg">
+    <%= link_to "#apps", class: "btn btn-primary" do %>
+      Applications
+    <% end %>
+    <%= link_to "/docs", class: "btn btn-secondary" do %>
+      Documentation
+    <% end %>
+  </div>
+</div>
+
+<section id="apps" class="apps-section p-lg">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-h1 text-center m-lg">Applications</h2>
+    
+    <div class="apps-grid grid grid-auto-fit gap-lg">
+      <% @apps.each do |app| %>
+        <div class="app-card card">
+          <div class="app-icon text-center m-md">
+            <span class="icon" style="font-size: 3rem;"><%= app[:icon] %></span>
+          </div>
+          
+          <div class="app-content">
+            <h3 class="font-h3 m-sm"><%= app[:title] %></h3>
+            <p class="text-small color-text-light m-sm">
+              <%= app[:description] %>
+            </p>
+            
+            <div class="app-actions m-md">
+              <%= link_to app[:path], class: "btn btn-primary" do %>
+                Open App
+              <% end %>
+            </div>
+          </div>
+          
+          <div class="app-status">
+            <span class="status-badge status-prepared">
+              Prepared
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="features-section p-lg bg-surface">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-h1 text-center m-lg">Features</h2>
+    
+    <div class="features-grid grid grid-cols-3 gap-lg">
+      <div class="feature-card text-center">
+        <div class="feature-icon m-md">
+          <span style="font-size: 2rem;">🤖</span>
+        </div>
+        <h3 class="font-h3 m-sm">AI³ Orchestration</h3>
+        <p class="text-small">
+          Multi-LLM cognitive architecture with 15 specialized assistants
+        </p>
+      </div>
+      
+      <div class="feature-card text-center">
+        <div class="feature-icon m-md">
+          <span style="font-size: 2rem;">🛡️</span>
+        </div>
+        <h3 class="font-h3 m-sm">OpenBSD Security</h3>
+        <p class="text-small">
+          Security-first approach with pledge, unveil, and privilege separation
+        </p>
+      </div>
+      
+      <div class="feature-card text-center">
+        <div class="feature-icon m-md">
+          <span style="font-size: 2rem;">🇳🇴</span>
+        </div>
+        <h3 class="font-h3 m-sm">Norwegian Compliance</h3>
+        <p class="text-small">
+          GDPR compliant with Norwegian data residency and legal requirements
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="developer-section p-lg">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="font-h1 m-lg">For Developers</h2>
+    
+    <div class="dev-info grid grid-cols-2 gap-lg text-left">
+      <div class="dev-card card">
+        <h3 class="font-h3 m-sm">Modern CSS Framework</h3>
+        <p class="text-small m-sm">
+          Built with CSS Grid, Flexbox, and CSS Variables following golden ratio design principles.
+        </p>
+        <button onclick="window.styleToggle?.toggle()" class="btn btn-outline">
+          Toggle Legacy Styles
+        </button>
+      </div>
+      
+      <div class="dev-card card">
+        <h3 class="font-h3 m-sm">Rails 8 Ready</h3>
+        <p class="text-small m-sm">
+          Modern Rails application with Hotwire, Stimulus, and solid performance foundations.
+        </p>
+        <%= link_to "/rails/info", class: "btn btn-outline" do %>
+          Rails Info
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

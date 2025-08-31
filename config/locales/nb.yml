@@ -1,0 +1,86 @@
+nb:
+  brand:
+    name: "Pub Healthcare"
+  
+  meta:
+    description: "Omfattende helseplattform med AI³-orkestrering"
+    keywords: "helse, AI, rails, norsk, openbsd, sikkerhet"
+  
+  navigation:
+    main: "Hovednavigasjon"
+    amber: "Amber"
+    brgen: "Brgen"
+    privcam: "PrivCam"
+    bsdports: "BSD-porter"
+    hjerterom: "Hjerterom"
+    profile: "Profil"
+    login: "Logg inn"
+    logout: "Logg ut"
+    signup: "Registrer deg"
+    toggle_menu: "Åpne/lukke meny"
+  
+  language:
+    norwegian: "Norsk"
+    english: "English"
+  
+  accessibility:
+    skip_to_content: "Hopp til hovedinnhold"
+    language_selector: "Velg språk"
+  
+  footer:
+    company: "Selskap"
+    about: "Om oss"
+    contact: "Kontakt"
+    careers: "Karriere"
+    press: "Presse"
+    applications: "Applikasjoner"
+    support: "Support"
+    help: "Hjelp"
+    documentation: "Dokumentasjon"
+    api: "API"
+    status: "Status"
+    legal: "Juridisk"
+    privacy: "Personvernpolicy"
+    terms: "Vilkår for bruk"
+    gdpr: "GDPR"
+    cookies: "Informasjonskapsler"
+    norwegian_registered: "Registrert i Norge"
+    org_number: "Org.nr"
+    gdpr_compliant: "GDPR-kompatibel"
+    data_residency: "Norsk datalagring"
+    vat_registered: "MVA-registrert"
+    breg_verified: "Verifisert med Brønnøysundregistrene"
+    gdpr_verified: "GDPR-samsvar verifisert"
+    wcag_verified: "WCAG 2.2 AAA Tilgjengelighet"
+    all_rights_reserved: "Alle rettigheter forbeholdt"
+    built_with: "Bygget med"
+  
+  badges:
+    breg: "BREG"
+    gdpr: "GDPR"
+    wcag: "WCAG"
+  
+  social:
+    github: "GitHub"
+    email: "E-post"
+  
+  # Rails-applikasjoner
+  amber:
+    title: "Amber - Mote & Stil"
+    description: "Mote- og stilhåndteringsapplikasjon"
+  
+  brgen:
+    title: "Brgen - Sosial plattform"
+    description: "Sosiale funksjoner og innholdsgenerering"
+  
+  privcam:
+    title: "PrivCam - Personvernkamera"
+    description: "Personvernsfokusert kameraapplikasjon"
+  
+  bsdports:
+    title: "BSD-porter - Pakkehåndtering"
+    description: "BSD-porterhåndteringssystem"
+  
+  hjerterom:
+    title: "Hjerterom - Personlig velvære"
+    description: "Personlige rom og velværehåndtering"
