@@ -79,9 +79,9 @@ find "${TMPDIR}/extracted" -type f 2>/dev/null | while read -r src; do
     target="${REPO_DIR}/rails/${rel##*/}"
   elif [[ "${lower_rel}" == *"/openbsd/"* ]] || [[ "${lower_rel}" == openbsd_* ]]; then
     target="${REPO_DIR}/openbsd/${rel##*/}"
-  elif [[ "${lower_rel}" == *"/ai3/"* ]] || [[ "${lower_rel}" == "ai33*" ]] || [[ "${lower_rel}" == *"/ai33/"* ]]; then
+  elif [[ "${lower_rel}" == *"/ai3/"* ]] || [[ "${lower_rel}" == "ai33"* ]] || [[ "${lower_rel}" == *"/ai33/"* ]]; then
     target="${REPO_DIR}/ai3/${rel##*/}"
-  elif [[ "${rel}" == *.sh ]] || [[ "${lower_rel}" == *"/sh/"* ]] ; then
+  elif [[ "${rel}" == *.sh ]] || [[ "${lower_rel}" == *"/sh/" ]] ; then
     target="${REPO_DIR}/sh/${rel##*/}"
   elif [[ "${rel}" == *.html ]] || [[ "${rel}" == *.md ]] || [[ "${lower_rel}" == *"bplans"* ]]; then
     target="${REPO_DIR}/bplans/${rel##*/}"
@@ -105,7 +105,7 @@ find "${TMPDIR}/extracted" -type f 2>/dev/null | while read -r src; do
     # preserve executable bit if original was executable
     if [ -x "${src}" ]; then chmod +x "${target}"; fi
   fi
-done
+ done
 
 # Download specific top-level HTML/MD artifacts from source repo raw
 RAW_BASE_BPLANS="https://raw.githubusercontent.com/anon987654321/pub/main"
@@ -120,7 +120,7 @@ declare -a DIRECT_FILES=(
 
 for f in "${DIRECT_FILES[@]}"; do
   url="${RAW_BASE_BPLANS}/${f}"
-  out="${REPO_DIR}/bplans/""$(basename "${f}")"
+  out="${REPO_DIR}/bplans/$(basename "${f}")"
   echo "Downloading raw ${f} to ${out}..."
   curl -fSL --retry 3 -o "${out}" "${url}" || {
     echo "Warning: failed to fetch ${url}"
@@ -130,4 +130,3 @@ done
 
 echo "Extraction and placement complete."
 echo "Any conflicts were copied to ${MERGE_CONFLICT_DIR}."
-echo "Next: run scripts/merge_md_to_html.sh to convert and inject md into .html pages."
