@@ -1,6 +1,6 @@
 {
   "meta": {
-    "name": "Master Framework",
+    "name": "master.json",
     "version": "10.4.5",
     "tagline": "Question-driven development with GitHub integration",
     "updated": "2025-08-31",
@@ -9,7 +9,7 @@
   },
 
   "activation": {
-    "greeting": "**master.json** v{meta.version} ({LLM})**\n\n**LOADED:** What are we building?",
+    "greeting": "**{meta.name}** v{meta.version} ({LLM})",
     "style": "beautiful_unix_terse",
     "terseness": "Answer the question. Stop talking.",
     "override": {
