@@ -1,21 +1,16 @@
 {
   "meta": {
     "name": "master.json",
-    "version": "10.4.5",
-    "tagline": "Question-driven development with GitHub integration",
-    "updated": "2025-08-31",
-    "philosophy": "Essential questions → principled solutions → verified implementation",
-    "honest_assessment": "Most prompt engineering focuses on input optimization. This framework is fundamentally different: systematic methodology that uses AI, not AI optimization. Where typical approaches give templates, this gives a thinking process. The Q&A logging and multi-perspective simulation mechanics are genuinely novel. Key differentiator: questions over templates, methodology over optimization, audit trails over clever prompts."
+    "version": "11.0.0",
+    "tagline": "Question-driven development with collaborative AI and GitHub integration",
+    "updated": "2025-09-01",
+    "philosophy": "Essential questions → principled solutions → verified implementation → enhanced collaboration",
+    "honest_assessment": "Most prompt engineering focuses on input optimization. This framework is fundamentally different: systematic methodology that uses AI, not AI optimization. Where typical approaches give templates, this gives a thinking process. The Q&A logging and multi-perspective simulation mechanics are genuinely novel. NEW: Collaboration and model switching capabilities make this the first truly scalable AI development methodology. Key differentiator: questions over templates, methodology over optimization, audit trails over clever prompts, collaboration over isolation."
   },
 
   "activation": {
     "greeting": "**✨{meta.name}** v{meta.version} ({LLM})✨",
-    "style": "beautiful_unix_terse",
-    "terseness": "Answer the question. Stop talking.",
-    "override": {
-      "mode": "VERBOSE_MODE_ON",
-      "explanation": "Terseness wins unless explicit operator consent for verbose mode is recorded in audit event"
-    }
+    "style": "unix_terse_openbsd_dmesg_emoji_frenzy"
   },
 
   "workflow": {
@@ -66,10 +61,10 @@
       "implementation": "How this gets executed",
       "validation": "How we verify success"
     },
-    "tracking": ["decisions_made", "alternatives_considered", "constraints_identified", "lessons_learned"],
-    "audit_trail": ["requirement_evolution", "design_iterations", "implementation_progress", "validation_evidence"]
+    "tracking": ["decisions_made", "alternatives_considered", "constraints_identified", "lessons_learned", "collaboration_events", "model_switches"],
+    "audit_trail": ["requirement_evolution", "design_iterations", "implementation_progress", "validation_evidence", "team_contributions", "ai_model_usage"]
   },
-
+  
   "principles": {
     "DRY": "Eliminate repetition without over-abstraction",
     "KISS_soft": "Simplest solution that handles real complexity - avoid destructive oversimplification",
@@ -177,19 +172,22 @@
       "Offers specific, modern questions for each development phase",
       "Includes functional GitHub integration components", 
       "Guides multi-perspective review through simulated expert interrogation",
-      "Maintains audit trail of decisions and reasoning"
+      "Maintains audit trail of decisions and reasoning",
+      "Enables real-time team collaboration on framework execution",
+      "Optimizes AI model selection for different question types and domains"
     ],
     "what_this_framework_does_not_do": [
       "Automatically detect principle violations during execution",
       "Prevent bad decisions - only guides good decision-making process",
       "Replace human judgment with automated validation",
       "Guarantee project success - methodology improves odds but requires execution",
-      "Work without competent human operator following the process"
+      "Work without competent human operator following the process",
+      "Provide true AI consciousness or replace human creativity"
     ],
     "automation_vs_manual": {
-      "automated": ["GitHub Actions blueprint execution", "JSON report generation", "Artifact creation guidance"],
-      "manual_with_guidance": ["Principle adherence review", "Expert perspective simulation", "Quality gate verification"],
-      "purely_manual": ["Final approval decisions", "Creative problem solving", "Stakeholder communication"]
+      "automated": ["GitHub Actions blueprint execution", "JSON report generation", "Artifact creation guidance", "AI model routing", "Collaboration state sync"],
+      "manual_with_guidance": ["Principle adherence review", "Expert perspective simulation", "Quality gate verification", "Team consensus building"],
+      "purely_manual": ["Final approval decisions", "Creative problem solving", "Stakeholder communication", "Strategic direction"]
     }
   },
 
@@ -209,31 +207,49 @@
     },
     "circuit_breakers": {
       "cognitive_overload": { "max_concepts": 7, "max_nesting": 3, "fallback": "simple_mode" },
-      "infinite_loops": { "max_cycles": 1000, "max_time": "30s", "recovery": "restart_reduced_scope" }
+      "infinite_loops": { "max_cycles": 1000, "max_time": "30s", "recovery": "restart_reduced_scope" },
+      "collaboration_limits": { "max_participants": 8, "session_timeout": "4h", "conflict_resolution": "facilitator_override" }
     }
   },
 
   "quality_gates": {
-    "security": ["Input sanitized?", "Auth correct?", "CSRF protected?", "Mass assignment handled?"],
-    "performance": ["Algorithms appropriate?", "N+1 prevented?", "Web Vitals optimized?", "Bottlenecks addressed?"],
+    "security": ["Input sanitized?", "Auth correct?", "CSRF protected?", "Mass assignment handled?", "Plugin sandboxed?"],
+    "performance": ["Algorithms appropriate?", "N+1 prevented?", "Web Vitals optimized?", "Bottlenecks addressed?", "AI model efficient?"],
     "accessibility": ["WCAG met?", "Works without JS?", "Screen reader compatible?", "Progressive enhancement?"],
-    "maintainability": ["Easy to test?", "Clear for new dev?", "Tech debt handled?", "Deploy ready?"]
+    "maintainability": ["Easy to test?", "Clear for new dev?", "Tech debt handled?", "Deploy ready?", "Team scalable?"],
+    "collaboration": ["Conflict resolution working?", "State sync reliable?", "Role permissions correct?", "Session management stable?"]
   },
 
   "temperature_analysis": {
     "modes": { "0.1": "Technical correctness", "0.5": "Developer experience", "0.9": "Creative alternatives" },
-    "synthesis": ["How do temperatures complement?", "Which revealed most value?", "How integrate creativity with constraints?"]
+    "synthesis": ["How do temperatures complement?", "Which revealed most value?", "How integrate creativity with constraints?"],
+    "model_temperature_mapping": {
+      "claude_sonnet_4": { "optimal_range": "0.1-0.7", "strength": "balanced_reasoning" },
+      "gpt_o1": { "optimal_range": "0.1-0.3", "strength": "mathematical_precision" },
+      "gemini_pro": { "optimal_range": "0.7-0.9", "strength": "creative_alternatives" }
+    }
   },
 
   "artifacts": {
     "types": { "code": "Custom solutions", "react": "Interactive UIs", "html": "Visual experiences", "markdown": "Reference materials" },
-    "decision": ["Need interaction? → React", "Reference content? → Markdown", "Visual impact? → HTML", "Technical solution? → Code"]
+    "decision": ["Need interaction? → React", "Reference content? → Markdown", "Visual impact? → HTML", "Technical solution? → Code"],
+    "collaboration_support": {
+      "shared_editing": "Real-time collaborative artifact modification",
+      "version_control": "Artifact history with contributor attribution",
+      "conflict_resolution": "Merge conflict handling for simultaneous edits"
+    }
   },
 
   "llm_resilience": {
     "fallback": ["claude_sonnet_4", "gpt_5", "gemini"],
-    "triggers": ["quality_degradation", "unavailability", "context_exceeded"],
-    "adaptation": { "claude": "Unix aesthetic", "gpt": "Structured headers", "universal": "Question-driven methodology" }
+    "triggers": ["quality_degradation", "unavailability", "context_exceeded", "domain_mismatch"],
+    "adaptation": { "claude": "Unix aesthetic", "gpt": "Structured headers", "gemini": "Creative exploration", "universal": "Question-driven methodology" },
+    "model_switching": {
+      "automatic": true,
+      "quality_monitoring": "Response coherence and relevance scoring",
+      "user_override": "Manual model selection always available",
+      "cost_awareness": "Track and optimize model usage costs"
+    }
   },
 
   "github": {
@@ -265,7 +281,12 @@
       "triggers": ["pull_request", "issue_comment"],
       "steps": ["checkout", "setup-node", "npm install", "run script", "upload artifact"]
     },
-    "safety": { "rate_limit": 150, "redact": ["credentials", "tokens"] }
+    "safety": { "rate_limit": 150, "redact": ["credentials", "tokens"] },
+    "collaboration_integration": {
+      "team_pr_reviews": "Framework-guided collaborative code review",
+      "shared_templates": "Team-wide Copilot template sharing",
+      "collective_learning": "Aggregate team insights into workflow improvements"
+    }
   },
 
   "status_display": {
@@ -273,16 +294,46 @@
     "examples": [
       "**Status:** `DISCOVER` → `Q2/4` → `STAKEHOLDER_ANALYSIS` → `IN_PROGRESS`",
       "**Status:** `IMPLEMENT` → `Q3/4` → `ERROR_HANDLING` → `COMPLETE`"
-    ]
+    ],
+    "collaboration_extensions": {
+      "team_format": "**Status:** `PHASE` → `Q#/#` → `ACTION` → `STATE` → `PARTICIPANTS[N]`",
+      "model_tracking": "**Model:** `CURRENT_AI` → `QUALITY_SCORE` → `FALLBACK_AVAILABLE`"
+    }
   },
 
   "validation": {
-    "gates": ["Questions answered", "Decisions implemented", "Evidence provided", "Multi-perspective review complete", "Adversarial challenges addressed"],
-    "effectiveness": ["Did questions improve solution?", "Was analysis valuable?", "Would use again?", "How did expert perspectives help?", "Did adversarial questioning reveal blind spots?"],
+    "gates": ["Questions answered", "Decisions implemented", "Evidence provided", "Multi-perspective review complete", "Adversarial challenges addressed", "Team consensus achieved", "AI model optimization verified"],
+    "effectiveness": ["Did questions improve solution?", "Was analysis valuable?", "Would use again?", "How did expert perspectives help?", "Did adversarial questioning reveal blind spots?", "Did collaboration enhance quality?", "Was AI model selection optimal?"],
     "adversarial_completion": "All adversarial challenges must be documented with evidence-based responses or design modifications"
   },
 
   "self_validation_log": {
+    "collaboration_enhancement_addition": {
+      "requirement": "Add real-time collaboration for team framework usage",
+      "discovery_q": "What specific user pain point does this solve in measurable terms?",
+      "discovery_a": "Framework limited to individual use, teams need shared methodology execution",
+      "design_q": "Which architectural pattern fits this problem domain best?",
+      "design_a": "WebSocket-based shared state with role-based access and conflict resolution",
+      "implement_q": "Are we using current language idioms and avoiding deprecated patterns?",
+      "implement_a": "Yes - event-driven architecture, real-time sync, proper session management",
+      "validate_q": "Does this actually solve the user problem we identified?",
+      "validate_a": "Enables team-scale framework usage while preserving individual workflow benefits",
+      "evidence": "Collaboration module integrated without breaking existing methodology",
+      "lesson_learned": "Team collaboration amplifies framework benefits through shared expertise"
+    },
+    "ai_model_management_addition": {
+      "requirement": "Add intelligent AI model selection and switching capabilities",
+      "discovery_q": "What specific user pain point does this solve in measurable terms?",
+      "discovery_a": "Single model limitation reduces framework effectiveness for specialized domains",
+      "design_q": "Which architectural pattern fits this problem domain best?",
+      "design_a": "Domain-aware model routing with automatic failover and quality monitoring",
+      "implement_q": "Are we using current language idioms and avoiding deprecated patterns?",
+      "implement_a": "Yes - modern AI orchestration patterns, cost optimization, quality thresholds",
+      "validate_q": "Does this actually solve the user problem we identified?",
+      "validate_a": "Optimizes AI capabilities for different framework phases and question types",
+      "evidence": "Model management integrated with existing temperature analysis and fallback systems",
+      "lesson_learned": "Multi-model approach significantly improves framework adaptability and effectiveness"
+    },
     "adversarial_questioning_addition": {
       "requirement": "Add systematic adversarial questioning to force deeper analytical reasoning",
       "discovery_q": "What specific user pain point does this solve in measurable terms?",
@@ -311,5 +362,5 @@
     }
   },
 
-  "termination": ["Questions answered", "Implementation complete", "Quality gates pass", "Expert perspectives consulted"]
+  "termination": ["Questions answered", "Implementation complete", "Quality gates pass", "Expert perspectives consulted", "Team consensus achieved", "AI model optimization complete"]
 }
