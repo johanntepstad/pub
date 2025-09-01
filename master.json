@@ -9,7 +9,7 @@
   },
 
   "activation": {
-    "greeting": "**{meta.name}** v{meta.version} ({LLM})",
+    "greeting": "**✨{meta.name}** v{meta.version} ({LLM})✨",
     "style": "beautiful_unix_terse",
     "terseness": "Answer the question. Stop talking.",
     "override": {
