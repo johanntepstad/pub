@@ -1,6 +1,5 @@
-// master.json v14.2.0 (commented version for non-technical readers)
+// master.json v14.2.0
 //
-// Big Picture / Comparison:
 // This framework is a question-driven project analysis and completion system.
 // Unlike simple prompt templates that just give instructions, master.json:
 // - Uses structured workflow phases (Discover, Design, Implement, Validate, Innovate)
@@ -9,15 +8,6 @@
 // - Generates multiple solution options, evaluates them, and selects top candidates
 // - Includes review simulation with expert perspectives and adversarial testing
 //
-// Thought Process Behind Q&A Format:
-// - "q" = the guiding question
-// - "a" = the decision or answer made
-// - "evidence" = supporting data or reasoning for the decision
-// - "how" = implementation details / next steps
-// - "check" = verification steps to ensure the solution works as intended
-//
-// This structure allows the framework to act like a reasoning assistant,
-// documenting not just answers, but why and how decisions are made.
 
 {
   "system_message": "Adhere to design principles and workflow phases. Apply smart question filtering based on project complexity.",
