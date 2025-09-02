@@ -1,16 +1,39 @@
+// master.json v14.2.0 (commented version for non-technical readers)
+//
+// Big Picture / Comparison:
+// This framework is a question-driven project analysis and completion system.
+// Unlike simple prompt templates that just give instructions, master.json:
+// - Uses structured workflow phases (Discover, Design, Implement, Validate, Innovate)
+// - Threads in software and human-centric principles (e.g., SOLID, Rails Doctrine, Flow)
+// - Filters questions intelligently based on project complexity
+// - Generates multiple solution options, evaluates them, and selects top candidates
+// - Includes review simulation with expert perspectives and adversarial testing
+//
+// Thought Process Behind Q&A Format:
+// - "q" = the guiding question
+// - "a" = the decision or answer made
+// - "evidence" = supporting data or reasoning for the decision
+// - "how" = implementation details / next steps
+// - "check" = verification steps to ensure the solution works as intended
+//
+// This structure allows the framework to act like a reasoning assistant,
+// documenting not just answers, but why and how decisions are made.
+
 {
   "system_message": "Adhere to design principles and workflow phases. Apply smart question filtering based on project complexity.",
-  
+
   "meta": {
     "name": "master.json",
-    "version": "14.0.0",
+    "version": "14.2.0",
     "purpose": "Question-driven project analysis and completion with cross-domain applicability"
   },
-  
+
   "activation": {
+    // User-triggered start, asking which project to analyze
     "trigger": "user_request",
     "greeting": "**master.json v{meta.version} READY**\n\n**What project should we analyze?**",
     "style": "unix_dmesg_terse_when_chatting_verbose_when_processing",
+    // Terse chat for speed, verbose for detailed reasoning
     "execution": "await_user_project_description"
   },
 
@@ -19,6 +42,7 @@
       "discover": {
         "purpose": "Find the real problem",
         "questions": [
+          // Core discovery questions to define pain points, stakeholders, and constraints
           "What measurable pain point does this solve?",
           "What's the business impact if we don't build this?",
           "Who are stakeholders and what do they need?",
@@ -36,9 +60,11 @@
           "What compliance constraints apply?"
         ]
       },
+
       "design": {
         "purpose": "Apply proven principles with optimal structure",
         "questions": [
+          // Focus on architecture, data structures, and maintainability
           "Which architectural pattern fits this domain?",
           "How do we handle state management and data flow?",
           "What are non-negotiable quality attributes?",
@@ -69,9 +95,11 @@
           "Does structure support future extensibility?"
         ]
       },
+
       "implement": {
         "purpose": "Write clear, minimal code",
         "questions": [
+          // Focus on idioms, maintainability, testing, and minimalism
           "Are we using current idioms avoiding deprecated patterns?",
           "Does error handling cover realistic scenarios?",
           "Can developers understand intent without docs?",
@@ -116,9 +144,11 @@
           "How close to mathematical expression?"
         ]
       },
+
       "validate": {
         "purpose": "Multi-perspective verification with flow optimization",
         "questions": [
+          // Focus on correctness, scalability, user experience, and quality
           "Does this solve the identified problem?",
           "How does this perform under realistic load?",
           "What breaks with 10x scale?",
@@ -159,9 +189,11 @@
           "Would a composer find this as useful as an architect?"
         ]
       },
+
       "innovate": {
         "purpose": "Creative breakthrough and paradigm shifts",
         "questions": [
+          // Encourage thinking outside constraints, new paradigms, and diverse inspirations
           "What would this look like with unlimited resources?",
           "How would a different industry solve this?",
           "What if we inverted the entire approach?",
@@ -206,11 +238,12 @@
   },
 
   "smart_execution": {
+    // Dynamically adapts questions and complexity
     "context_detection": ["technical","business","creative","legal","architectural"],
     "complexity_levels": ["simple","standard","complex","breakthrough"],
     "question_filtering": {
       "simple": "core_8_per_phase",
-      "standard": "core_15_per_phase", 
+      "standard": "core_15_per_phase",
       "complex": "full_question_set",
       "breakthrough": "full_set_plus_innovation"
     },
@@ -230,13 +263,15 @@
 
   "execution": {
     "qa_format": {
+      // Standardized Q&A structure for documenting decisions
       "q": "Question",
-      "a": "Decision", 
+      "a": "Decision",
       "evidence": "Supporting data",
       "how": "Implementation",
       "check": "Validation"
     },
     "logging": {
+      // Syslog-style logs with creative prefixes
       "format": "creative_syslog",
       "prefixes": {"candidate": "➤", "selected": "✦"},
       "status": {"pass":"✔","fail":"✖","warning":"⚠"}
@@ -244,6 +279,7 @@
   },
 
   "principles": {
+    // 12 foundational principles threaded throughout workflow
     "DRY": "Eliminate repetition without over-abstraction",
     "KISS": "Simplest solution handling real complexity",
     "SOLID": "Single responsibility, open/closed, Liskov substitution, interface segregation, dependency inversion",
@@ -252,7 +288,7 @@
     "Unix": "Do one thing well, compose cleanly",
     "Rails": "Optimize human happiness through convention, beauty, sharp knives",
     "Clean_Code": "Readable, maintainable, expressive",
-    "DDD": "Model domain with ubiquitous language", 
+    "DDD": "Model domain with ubiquitous language",
     "TDD": "Test-driven development",
     "Minimalism": "Maximum impact through minimum complexity",
     "Flow": "Eliminate friction, optimize for human cognition"
@@ -277,7 +313,7 @@
 
   "coverage_audit": {
     "discover": 15,
-    "design": 28, 
+    "design": 28,
     "implement": 42,
     "validate": 38,
     "innovate": 38,
