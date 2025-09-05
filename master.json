@@ -1,12 +1,6 @@
 // master.json v14.3.0
 //
 // Question-driven project analysis framework.
-// 
-// Features:
-// - Adversarial questioning with multi-expert simulation and full Q&A transparency
-// - Self-validation capability
-// - Systematic coverage prevents requirement gaps
-// - Cross-domain application (technical, creative, business projects)
 //
 
 {
